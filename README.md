@@ -1,2 +1,3 @@
-# front-end-appetizers
-A font-end foundation course for my teaching at TDJD.
+# 前端开胃菜
+
+这是前端基础内容的系列教学。
