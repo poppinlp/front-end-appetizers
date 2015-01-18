@@ -2,15 +2,16 @@
 
 Test for summary.
 
-- [lesson 1](posts/lesson-1.md)
-- [lesson 2](posts/lesson-2.md)
-- [lesson 3](posts/lesson-3.md)
-- [lesson 4](posts/lesson-4.md)
-- [lesson 5](posts/lesson-5.md)
-- [lesson 6](posts/lesson-6.md)
-- [lesson 7](posts/lesson-7.md)
-- [lesson 8](posts/lesson-8.md)
-- [lesson 9](posts/lesson-9.md)
-- [lesson 10](posts/lesson-10.md)
-- [lesson 11](posts/lesson-11.md)
+- [HTML 1](posts/lesson-1.md)
+- [HTML 2](posts/lesson-2.md)
+- [CSS 1](posts/lesson-3.md)
+- [CSS 2](posts/lesson-4.md)
+- [Javascript 1](posts/lesson-5.md)
+- [Javascript 2](posts/lesson-6.md)
+- [Javascript 3](posts/lesson-7.md)
+- [Javascript 4](posts/lesson-8.md)
+- [DOM 1](posts/lesson-9.md)
+- [DOM 2](posts/lesson-10.md)
+- [Demo 1](posts/lesson-11.md)
+- [Demo 2](posts/lesson-12.md)
 
