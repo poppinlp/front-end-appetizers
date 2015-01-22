@@ -14,4 +14,5 @@ Test for summary.
 - [DOM 2](posts/lesson-10.md)
 - [Demo 1](posts/lesson-11.md)
 - [Demo 2](posts/lesson-12.md)
+- [Demo 3](posts/lesson-13.md)
 
