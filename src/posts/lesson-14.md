@@ -3,7 +3,7 @@
 ## 综合实战 Part 4
 
 - top fixed navigation
-- seggestion for search box
+- suggestion for search box
 
 __Fighting\!__
 
