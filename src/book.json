@@ -3,10 +3,15 @@
     "description": "一套面向零基础初学者的教程",
     "isbn": null,
     "extension": null,
-    "plugins": ["baidu", "-mathjax"],
+    "plugins": ["-mathjax", "baidu"],
     "pluginsConfig": {
         "baidu": {
             "token": "d42134efe87bc063bacebecb25df3b7d"
+        },
+        "fontSettings": {
+            "theme": "night",
+            "family": "sans",
+            "size": 2
         }
     },
     "links": {
