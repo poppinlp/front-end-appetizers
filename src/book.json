@@ -1,0 +1,24 @@
+{
+    "title": "Front-end Appetizers",
+    "description": "一套面向零基础初学者的教程",
+    "isbn": null,
+    "extension": null,
+    "plugins": ["baidu", "-mathjax"],
+    "pluginsConfig": {
+        "baidu": {
+            "token": "d42134efe87bc063bacebecb25df3b7d"
+        }
+    },
+    "links": {
+        "sidebar": {
+            "PoppinL": "https://poppinlp.github.io"
+        },
+        "sharing": {
+            "google": null,
+            "facebook": null,
+            "twitter": null,
+            "weibo": null,
+            "all": null
+        }
+    }
+}
