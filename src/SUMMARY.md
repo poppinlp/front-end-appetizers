@@ -1,7 +1,5 @@
 # Summary
 
-Test for summary.
-
 - [HTML 1](posts/lesson-1.md)
 - [HTML 2](posts/lesson-2.md)
 - [CSS 1](posts/lesson-3.md)
