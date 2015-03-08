@@ -15,3 +15,4 @@
 - [Demo 3](posts/lesson-13.md)
 - [Demo 4](posts/lesson-14.md)
 - [Demo 5](posts/lesson-15.md)
+- [jQuery 1](posts/advanced-lesson-1.md)
