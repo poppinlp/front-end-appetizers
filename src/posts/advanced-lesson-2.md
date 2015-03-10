@@ -1,5 +1,10 @@
 # Front end advanced course 2
 
+上节课的作业:
+
+- [第一题](http://poppinlp.github.io/front-end-appetizers/homework/jquery1/1.html)
+- [第二题](http://poppinlp.github.io/front-end-appetizers/homework/jquery1/2.html)
+
 本节课的主要内容为:
 
 - jQuery 事件
@@ -75,6 +80,34 @@ delegate(document, 'li', 'click', function () {
 - on / off
 - one
 - trigger
+
+### bind / unbind
+
+这一组方法即是 jQuery 中绑定事件的基础方法:
+
+```js
+.bind( eventType [, eventData ], handler )
+.bind( eventType [, eventData ] [, preventBubble ] )
+.bind( events )
+```
+
+### delegate / undelegate
+
+这组方法负责执行事件代理:
+
+```js
+.delegate( selector, eventType, handler )
+.delegate( selector, eventType, eventData, handler )
+.delegate( selector, events )
+```
+
+### live / die
+
+### on / off
+
+### one
+
+### trigger
 
 ## jQuery 动画
 

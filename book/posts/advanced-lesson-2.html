@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="17" data-basepath=".." data-revision="1425982655332">
+    <div class="book" data-level="17" data-basepath=".." data-revision="1425988938087">
     
 
 <div class="book-summary">
@@ -434,6 +434,11 @@
                     <section class="normal" id="section-gitbook_10">
                     
                         <h1 id="front-end-advanced-course-2">Front end advanced course 2</h1>
+<p>上节课的作业:</p>
+<ul>
+<li><a href="http://poppinlp.github.io/front-end-appetizers/homework/jquery1/1.html" target="_blank">第一题</a></li>
+<li><a href="http://poppinlp.github.io/front-end-appetizers/homework/jquery1/2.html" target="_blank">第二题</a></li>
+</ul>
 <p>本节课的主要内容为:</p>
 <ul>
 <li>jQuery 事件</li>
@@ -501,6 +506,22 @@ delegate(<span class="hljs-built_in">document</span>, <span class="hljs-string">
 <li>one</li>
 <li>trigger</li>
 </ul>
+<h3 id="bind--unbind">bind / unbind</h3>
+<p>这一组方法即是 jQuery 中绑定事件的基础方法:</p>
+<pre><code class="lang-js">.bind( eventType [, eventData ], handler )
+.bind( eventType [, eventData ] [, preventBubble ] )
+.bind( events )
+</code></pre>
+<h3 id="delegate--undelegate">delegate / undelegate</h3>
+<p>这组方法负责执行事件代理:</p>
+<pre><code class="lang-js">.delegate( selector, eventType, handler )
+.delegate( selector, eventType, eventData, handler )
+.delegate( selector, events )
+</code></pre>
+<h3 id="live--die">live / die</h3>
+<h3 id="on--off">on / off</h3>
+<h3 id="one">one</h3>
+<h3 id="trigger">trigger</h3>
 <h2 id="jquery-">jQuery 动画</h2>
 <ul>
 <li>hide / show / toggle</li>
