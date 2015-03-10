@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery 1 homework 2</title>
+    </head>
+    <body>
+        <script src="../../jquery-2.1.3.min.js"></script>
+        <script>
+            var $square = $('<div></div>'),
+                $style = $('<style>.square {\
+                    position: absolute;\
+                    left:0;\
+                    right:0;\
+                    height:100px;\
+                    width:100px;\
+                    background-color:#f00;\
+                }</style>'),
+                $body = $(document.body);
+
+            $body.append($style);
+            $square.addClass('square').appendTo($body);
+
+            var timer = setInterval(move, 20);
+
+            function move() {
+                var offset = $square.offset().left;
+                if ($body.outerWidth(true) - $square.width() - offset <= 0) {
+                    clearInterval(timer);
+                    return;
+                }
+                $square.css('left', offset + 3);
+            }
+        </script>
+    </body>
+</html>
+
