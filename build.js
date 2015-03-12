@@ -1,5 +1,6 @@
 var exec = require('child_process').exec,
-    cmd = 'gitbook build -o book --config book.json ./src',
+    sep = require('path').sep,
+    cmd = 'gitbook build -o book --config book.json .' + sep + 'src',
     cb = function (err, stdout, stderr) {
         if (err) {
             console.log('Error: ' + err);
