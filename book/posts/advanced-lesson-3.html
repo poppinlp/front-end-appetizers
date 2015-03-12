@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Demo 4 | Front-end Appetizers</title>
+        <title>jQuery 3 | Front-end Appetizers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../posts/lesson-15.html" />
     
-    
-    <link rel="prev" href="../posts/lesson-13.html" />
+    <link rel="prev" href="../posts/advanced-lesson-2.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="14" data-basepath=".." data-revision="1426161364101">
+    <div class="book" data-level="18" data-basepath=".." data-revision="1426161364101">
     
 
 <div class="book-summary">
@@ -281,7 +279,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="14" data-path="posts/lesson-14.html">
+        <li class="chapter " data-level="14" data-path="posts/lesson-14.html">
             
                 
                     <a href="../posts/lesson-14.html">
@@ -345,7 +343,7 @@
         </li>
     
         
-        <li class="chapter " data-level="18" data-path="posts/advanced-lesson-3.html">
+        <li class="chapter active" data-level="18" data-path="posts/advanced-lesson-3.html">
             
                 
                     <a href="../posts/advanced-lesson-3.html">
@@ -449,16 +447,203 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_10">
+                    <section class="normal" id="section-gitbook_4">
                     
-                        <h1 id="front-end-foundation-course-14">Front end foundation course 14</h1>
-<h2 id="-part-4">综合实战 Part 4</h2>
+                        <h1 id="front-end-advanced-course-3">Front end advanced course 3</h1>
+<p>上节课的作业:</p>
 <ul>
-<li>top fixed navigation</li>
-<li>suggestion for search box</li>
+<li><a href="http://poppinlp.github.io/front-end-appetizers/homework/jquery2/1.html" target="_blank">第一题</a></li>
 </ul>
-<p><strong>Fighting!</strong></p>
-<p>2015.01.25</p>
+<p>本节课的主要内容为:</p>
+<ul>
+<li>jQuery 事件 2</li>
+<li>jQuery util</li>
+<li>jQuery core</li>
+</ul>
+<h2 id="jquery--2">jQuery 事件 2</h2>
+<p>上节课我们讲了很多 jQuery 里的事件，这里再补充几个和加载流程相关的事件。</p>
+<ul>
+<li>load</li>
+<li>unload</li>
+<li>ready</li>
+<li>holdReady</li>
+</ul>
+<h3 id="load">load</h3>
+<p>该事件在绑定的节点以及它的子节点加载完成后触发。可以绑定在各种节点上，例如但不仅限于这些:</p>
+<ul>
+<li>images</li>
+<li>scripts</li>
+<li>frames</li>
+<li>iframes</li>
+<li>window</li>
+</ul>
+<p>使用方法和其他事件并无区别:</p>
+<pre><code class="lang-js">$ele.on(<span class="hljs-string">'load'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{});
+$ele.load(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{});
+</code></pre>
+<h3 id="beforeunload">beforeunload</h3>
+<p>该事件在用户页面关闭前产生，只可绑定在 <code>window</code> 上，于此相关的事件还有:</p>
+<ul>
+<li>unload</li>
+<li>pagehide</li>
+</ul>
+<p>它们发生的先后顺序为: beforeunload -> unload -> pagehide 。</p>
+<p>该事件主要用于确认页面退出以及一些页面关闭时的善后工作:</p>
+<pre><code class="lang-js">$(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'beforeunload'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"你怎么舍得关闭这么可爱的我~"</span>;
+});
+</code></pre>
+<h3 id="ready">ready</h3>
+<p>在页面 DOM 已经解析完成的时候会发生 <code>DOMContentLoaded</code> 或 <code>readystatechange</code> 事件，这时我们便可以安全的执行 JS 代码来进行 DOM 操作。
+并且从性能角度考虑，将最初非必要的内容放到 DOM ready 之后也能提升用户的感知体验。于是 jQuery 封装了 <code>ready</code> 方法用来在 DOM ready 的时候执行相应的回调。</p>
+<pre><code class="lang-js">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// do some stuff</span>
+});
+</code></pre>
+<p>由于 jQuery 的 <code>$</code> 函数对于传入参数如果是函数时的特殊处理，我们也可以这样使用:</p>
+<pre><code class="lang-js">$(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// do some stuff</span>
+});
+</code></pre>
+<h3 id="holdready">holdReady</h3>
+<p>该方法可以认为的控制 <code>ready</code> 事件的发生时机:</p>
+<pre><code class="lang-js">$.holdReady( hold )
+</code></pre>
+<p>其中参数 <code>hold</code> 为一个布尔值，<code>true</code> 时 <code>ready</code> 事件会被延迟直到其为 <code>false</code>时。如:</p>
+<pre><code class="lang-js">$.holdReady(<span class="hljs-literal">true</span>);
+$.getScript(<span class="hljs-string">"some.js"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  $.holdReady(<span class="hljs-literal">false</span>);
+});
+</code></pre>
+<h2 id="jquery-util">jQuery util</h2>
+<p>jQuery 提供了一些通用的工具方法，我们这里选择几个介绍:</p>
+<ul>
+<li>$.contains</li>
+<li>$.each</li>
+<li>$.extend</li>
+<li>$.isWindow / $.isArray / $.isFunction / $.isEmptyObject / $.isNumeric</li>
+<li>$.parseJSON</li>
+<li>$.trim</li>
+</ul>
+<h2 id="jquery-core">jQuery core</h2>
+<p>jQuery 里有一些稍微复杂点的封装的对象，如 <code>deferred</code> 和 <code>Callbacks</code>，前者主要用来实现 promise 相关的特性，后者是回调函数队列。
+由于和标准不完全一样，所以不太推荐使用 jQuery 的 <code>deferred</code> 来做 promise，如需实现，可用其他的库。我们这里来讲一下后者。</p>
+<h3 id="callbacks">callbacks</h3>
+<p><code>Callbacks</code> 是 jQuery 中的一个构造函数，它返回一个 callbacks 的实例:</p>
+<pre><code class="lang-js">jQuery.Callbacks( flags );
+</code></pre>
+<p>其中参数 <code>flags</code> 用来表示创建的 callbacks 实例的类型，其取值有4种:</p>
+<ul>
+<li>once</li>
+<li>memory</li>
+<li>unique</li>
+<li>stopOnFalse</li>
+</ul>
+<p>下面针对这四种取值单独介绍它的意思，不过这里先声明两个函数以备下文使用:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f1</span><span class="hljs-params">(val)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(val);
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f2</span><span class="hljs-params">(val)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'fn2 says:%s'</span>, val);
+}
+</code></pre>
+<h4 id="once">once</h4>
+<p>当创建 <code>once</code> 类型的 callback 时，该 callback 只会被执行一次。如:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> callbacks = $.Callbacks( <span class="hljs-string">"once"</span> );
+callbacks.add( fn1 );
+callbacks.fire( <span class="hljs-string">"foo"</span> );
+callbacks.add( fn2 );
+callbacks.fire( <span class="hljs-string">"bar"</span> );
+callbacks.remove( fn2 );
+callbacks.fire( <span class="hljs-string">"foobar"</span> );
+
+<span class="hljs-comment">/*
+output:
+foo
+*/</span>
+</code></pre>
+<h4 id="memory">memory</h4>
+<p>当创建 <code>memory</code> 类型的 callback 时，<code>fire</code> 队列后会自动记忆上一次 <code>fire</code> 时的值并在之后 <code>add</code> 的时候立刻用该值<code>fire</code>:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> callbacks = $.Callbacks( <span class="hljs-string">"memory"</span> );
+callbacks.add( fn1 );
+callbacks.fire( <span class="hljs-string">"foo"</span> );
+callbacks.add( fn2 );
+callbacks.fire( <span class="hljs-string">"bar"</span> );
+callbacks.remove( fn2 );
+callbacks.fire( <span class="hljs-string">"foobar"</span> );
+
+<span class="hljs-comment">/*
+output:
+foo
+fn2 says:foo
+bar
+fn2 says:bar
+foobar
+*/</span>
+</code></pre>
+<h4 id="unique">unique</h4>
+<p>当创建 <code>unique</code> 类型的 callback 时，重复添加的函数将不会产生效果:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> callbacks = $.Callbacks( <span class="hljs-string">"unique"</span> );
+callbacks.add( fn1 );
+callbacks.fire( <span class="hljs-string">"foo"</span> );
+callbacks.add( fn1 ); <span class="hljs-comment">// Repeat addition</span>
+callbacks.add( fn2 );
+callbacks.fire( <span class="hljs-string">"bar"</span> );
+callbacks.remove( fn2 );
+callbacks.fire( <span class="hljs-string">"foobar"</span> );
+
+<span class="hljs-comment">/*
+output:
+foo
+bar
+fn2 says:bar
+foobar
+*/</span>
+</code></pre>
+<h4 id="stoponfalse">stopOnFalse</h4>
+<p>创建 <code>stopOnFalse</code> 类型的 callback 时，如果某个回掉函数返回值为 <code>false</code>，则会停止回掉队列:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn1</span><span class="hljs-params">( value )</span> </span>{
+  <span class="hljs-built_in">console</span>.log( value );
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn2</span><span class="hljs-params">( value )</span> </span>{
+  fn1( <span class="hljs-string">"fn2 says: "</span> + value );
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-keyword">var</span> callbacks = $.Callbacks( <span class="hljs-string">"stopOnFalse"</span> );
+callbacks.add( fn1 );
+callbacks.fire( <span class="hljs-string">"foo"</span> );
+callbacks.add( fn2 );
+callbacks.fire( <span class="hljs-string">"bar"</span> );
+callbacks.remove( fn2 );
+callbacks.fire( <span class="hljs-string">"foobar"</span> );
+
+<span class="hljs-comment">/*
+output:
+foo
+bar
+foobar
+*/</span>
+</code></pre>
+<h4 id="callback-">callback 实例的方法</h4>
+<p>下面是一些 callback 实例的常用方法，有的在上文中已经出现过，大家可以自行进行练习:</p>
+<ul>
+<li>callbacks.add()</li>
+<li>callbacks.empty()</li>
+<li>callbacks.fire()</li>
+<li>callbacks.fired()</li>
+<li>callbacks.fireWith()</li>
+<li>callbacks.has()</li>
+<li>callbacks.remove()</li>
+</ul>
+<h2 id="home-work">HOME WORK</h2>
+<h2 id="">内容预告</h2>
+<ol>
+<li>nodejs 简介</li>
+<li>ajax</li>
+</ol>
 
                     
                     </section>
@@ -469,10 +654,8 @@
         </div>
 
         
-        <a href="../posts/lesson-13.html" class="navigation navigation-prev " aria-label="Previous page: Demo 3"><i class="fa fa-angle-left"></i></a>
+        <a href="../posts/advanced-lesson-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: jQuery 2"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../posts/lesson-15.html" class="navigation navigation-next " aria-label="Next page: Demo 5"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

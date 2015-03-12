@@ -17,3 +17,4 @@
 - [Demo 5](posts/lesson-15.md)
 - [jQuery 1](posts/advanced-lesson-1.md)
 - [jQuery 2](posts/advanced-lesson-2.md)
+- [jQuery 3](posts/advanced-lesson-3.md)

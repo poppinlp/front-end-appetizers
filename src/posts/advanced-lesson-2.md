@@ -209,6 +209,7 @@ jQuery 中对于常见的动画效果进行了非常方便调用的封装，于�
 - animate
 - delay
 - stop
+
 ## HOME WORK
 
 1. Make a simple TODO list

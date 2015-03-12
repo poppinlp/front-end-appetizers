@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery 2 homework 1</title>
+        <style>
+            ul,
+            li {
+                margin:0;
+                padding:0;
+            }
+            ul {
+                list-style:none;
+                width:300px;
+                border:1px solid #999;
+                min-height:30px;
+            }
+            li {
+                height:30px;
+                line-height:30px;
+                padding:0 15px;
+            }
+            li:hover {
+                background:#eee;
+            }
+            .done {
+                text-decoration:line-through;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simple TODO list</h1>
+        <input type="text">
+        <a class="add-btn" href="javascript:void(0)">Add</a>
+        <ul></ul>
+        <script src="../../jquery-2.1.3.min.js"></script>
+        <script>
+            var $list = $('ul');
+            var $btn = $('.add-btn');
+            var $input = $('input');
+
+            $(document).ready(function () {
+                $input.focus();
+
+                $btn.bind('click', function () {
+                    $list.append('<li>' + $input.val() + '</li>');
+                });
+                $list.delegate('li', 'click', function () {
+                    $(this).addClass('done');
+                });
+            });
+        </script>
+    </body>
+</html>
+
