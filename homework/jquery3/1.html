@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery 3 homework 1</title>
+        <style>
+            .sheet {
+                display:none;
+                height:300px;
+            }
+            .active {
+                display:block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simple tab</h1>
+        <ul>
+            <li><a data-index="0" href="javascript:void(0)">Tab1</a></li>
+            <li><a data-index="1" href="javascript:void(0)">Tab2</a></li>
+            <li><a data-index="2" href="javascript:void(0)">Tab3</a></li>
+        </ul>
+        <div class="sheet active">Sheet for tab 1</div>
+        <div class="sheet">Sheet for tab 2</div>
+        <div class="sheet">Sheet for tab 3</div>
+        <script src="../../jquery-2.1.3.min.js"></script>
+        <script>
+            var $list = $('ul');
+            var $sheetList = $('.sheet');
+
+            $list.delegate('a', 'click', function (e) {
+                $sheetList.removeClass('active').eq($(e.currentTarget).data('index')).addClass('active');
+            });
+        </script>
+    </body>
+</html>
+
