@@ -19,4 +19,4 @@
 - [jQuery 2](posts/advanced-lesson-2.md)
 - [jQuery 3](posts/advanced-lesson-3.md)
 - [jQuery 4](posts/advanced-lesson-4.md)
-
+- [jQuery 5](posts/advanced-lesson-5.md)

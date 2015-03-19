@@ -11,19 +11,22 @@
 
 ## jQuery 实战
 
-### tab
+### tab 组件
 
 我们上节课作业留过一个简单的 tab，不过实现方法是很针对性的。现在设想这么一个需求，另一个页面也需要添加一个 tab，那么我们该怎么做呢？
+
+### 函数封装练习
+
+- addEvent
+- removeEvent
 
 ## nodejs 简介
 
 ## HOME WORK
 
-1. Simple slider
-2. 试着让 slider 更通用一些
+1. slider
 
 ## 内容预告
 
 1. ajax
-2. jquery ajax
 
