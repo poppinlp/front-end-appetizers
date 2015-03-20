@@ -14,17 +14,75 @@
 
 ### 更通用的 slider
 
-我们上次的作业已经实现了最基础的 slider，基础到十分简陋。那么我们来试试能不能做的更好些。
+我们上次的作业已经实现了最基础的 slider，基础到十分简陋。但这并无所谓，因为我们现在是在学习核心逻辑部分，所以样式的部分可以先不用那么在意。
 
-通用。
+我们之前讲 tab 的部分时，说到了如何让它变得更通用，那么这里的 slider 其实也是一个常见的组件，那么我们该怎么做呢？
 
-### select
+```js
+function initSlider(selContainer, config) {
+    var $slider = $(selContainer),
+        _config = {
+            selTrigger: '.js-slider-trigger',
+            selSheet: '.js-slider-sheet',
+            activeClass: 'active',
+            autoTrigger: true,
+            delay: 2000
+        };
+
+    if (!$slider.length) return;
+
+    $.extend(_config, config);
+
+    var $sheets = $slider.find(_config.selSheet),
+            slideSize = $sheets.length,
+            nowIndex = 0,
+            autoTimer = null;
+
+    if (!slideSize) return;
+
+    if (_config.autoTrigger) {
+        autoTrigger();
+    }
+
+    $slider.delegate(_config.trigger, 'click', function (e) {
+        var $target = $(e.target);
+
+        if ($target.data('action') === 'left') {
+            handleTriggerLeft();
+        } else {
+            handleTriggerRight();
+        }
+    });
+
+    function handleTriggerLeft() {
+        $sheets.eq(nowIndex).removeClass(_config.activeClass);
+        nowIndex = (--nowIndex + slideSize) % slideSize;
+        $sheets.eq(nowIndex).addClass(_config.activeClass);
+    }
+
+    function handleTriggerRight() {
+        $sheets.eq(nowIndex).removeClass(_config.activeClass);
+        nowIndex = ++nowIndex % slideSize;
+        $sheets.eq(nowIndex).addClass(_config.activeClass);
+    }
+
+    function autoTrigger() {
+       if (autoTimer)  return;
+        autoTimer = setInterval(handleTriggerRight, _config.delay);
+    }
+}
+```
 
 ### dropdown
 
+dropdown 即类似于[这样](http://getbootstrap.com/javascript/#dropdowns)的组件，大家来讨论一下如何实现它。
+
 ## HOME WORK
+
+1. dropdown 的具体实现
+2. 尝试让它更通用些
 
 ## 内容预告
 
-1. ajax 2
+1. ajax
 
