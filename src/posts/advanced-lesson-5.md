@@ -6,9 +6,9 @@
 
 本节课的主要内容为:
 
-- jQuery 实战2
+- jQuery 实战 2
 
-## jQuery 实战2
+## jQuery 实战 2
 
 这是几节理论课后的第二次实战课，我们会尝试着把之前学的理论实践成更有意思的东西，也希望在这个过程中教会大家一些思考方法。
 
@@ -85,4 +85,3 @@ dropdown 即类似于[这样](http://getbootstrap.com/javascript/#dropdowns)的�
 ## 内容预告
 
 1. ajax
-

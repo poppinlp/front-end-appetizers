@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery 5 homework 1</title>
+        <style>
+            a {
+                padding:5px 10px;
+                background:#f00;
+            }
+            .dropdown {
+                position:relative;
+                display:inline-block;
+            }
+            .dropdown-sheet {
+                display:none;
+                position:absolute;
+                left:0;
+                margin:0;
+                padding:0;
+                list-style:none;
+                background:#0f0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simple dropdown</h1>
+        <a>test</a>
+        <div class="dropdown">
+            <a href="javascript:void(0)" class="js-dropdown-trigger">List</a>
+            <ul class="js-dropdown-sheet dropdown-sheet">
+                <li>item1</li>
+                <li>item1</li>
+                <li>item1</li>
+                <li>item1</li>
+                <li>item1</li>
+            </ul>
+        </div>
+        <a>test</a>
+        <p>tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
+        <script src="../../jquery-2.1.3.min.js"></script>
+        <script>
+            var $sheet = $('.js-dropdown-sheet');
+            var $trigger = $('.js-dropdown-trigger');
+
+            $sheet.css('top', $trigger.outerHeight()).width($trigger.outerWidth());
+            $('.js-dropdown-trigger').bind('click', function () {
+                $('.js-dropdown-sheet').toggle();
+            });
+        </script>
+    </body>
+</html>
+

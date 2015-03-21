@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery 5 homework 2</title>
+        <style>
+            a {
+                padding:5px 10px;
+                background:#f00;
+            }
+            .dropdown {
+                position:relative;
+                display:inline-block;
+            }
+            .dropdown-sheet {
+                display:none;
+                position:absolute;
+                left:0;
+                margin:0;
+                padding:0;
+                list-style:none;
+                background:#0f0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simple dropdown</h1>
+        <a>test</a>
+        <div class="js-dropdown dropdown">
+            <a href="javascript:void(0)" class="js-dropdown-trigger">List</a>
+            <ul class="js-dropdown-sheet dropdown-sheet">
+                <li>item1</li>
+                <li>item1</li>
+                <li>item1</li>
+                <li>item1</li>
+                <li>item1</li>
+            </ul>
+        </div>
+        <a>test</a>
+        <p>tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</p>
+        <script src="../../jquery-2.1.3.min.js"></script>
+        <script>
+            initDropdown('.js-dropdown');
+
+            function initDropdown(selContainer, config) {
+                var $container = $(selContainer);
+
+                if (!$container.length || $container.data('init')) return;
+
+                var _config = {
+                        selTrigger: '.js-dropdown-trigger',
+                        selSheet: '.js-dropdown-sheet',
+                        eventType: 'click'
+                    },
+                    $trigger = $container.find(_config.selTrigger),
+                    $sheet = $container.find(_config.selSheet);
+
+                $.extend(_config, config);
+                $sheet.css('top', $trigger.outerHeight()).width($trigger.outerWidth());
+
+                $container.delegate(_config.selTrigger, _config.eventType, function () {
+                    $sheet.toggle();
+                });
+
+                $container.data('init', true);
+            }
+        </script>
+    </body>
+</html>
+
