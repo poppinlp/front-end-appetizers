@@ -79,7 +79,13 @@ if (window.XMLHttpRequest) {
 - 请求地址
 - 是否异步
 
-例如我们上面代码中的 `open` 方法，它的意思准备向 http://127.0.0.1 这个地址，使用 GET 方式，发送一个异步请求。
+请求方式指的是这个请求的类型，通常使用为 `GET` 或 `POST`。
+其实规范中还包括 `OPTIONS`, `PUT`, `DELETE`, `HEAD`, `CONNECT`, `TRACE`，只是因为现在很多开发人员为了方(tou)便(lan)所以通常只有前两者。
+详细内容可以看[官方规范](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)。
+
+请求地址即任意的 URL 地址，关于什么是 URL，可以看这篇[中文wiki](http://baike.baidu.com/view/1496.htm)。
+
+例如我们上面代码中的 `open` 方法，它的意思准备向 http://127.0.0.1 这个地址，使用 `GET` 方式，发送一个异步请求。
 
 ### 发送请求
 
@@ -110,13 +116,80 @@ if (window.XMLHttpRequest) {
 
 上面我们介绍了原生 js 如果做 AJAX 请求，那么既然我们使用了 jQuery，自然可以使用 jQuery 中更方便的封装。那么接下来我们看看 jQuery 中是如何封装的。
 
-- jQuery.get
-- jQuery.getJSON
-- jQuery.getScript
-- .load
-- jQuery.post
+- get
+- getJSON
+- getScript
+- load
+- post
+
+### get
+
+```js
+jQuery.get( [settings ] )
+jQuery.get( url [, data ] [, success ] [, dataType ] )
+```
+
+其中 `settings` 包含四个可设置的值:
+
+- `url`: 请求的目标地址
+- `data`: 需要发送的数据
+- `success`: 请求成功后的回调函数
+- `dataType`: 预期服务器返回的数据类型，xml | json | script | html
+
+这里需要注意的一点是，对于 `dataType` 不同，数据的默认处理方式也不一样:
+
+- xml: 数据会被尝试按照 xml 解析，即调用 `parseXML`
+- json: 数据会被尝试按照 json 解析，即调用 `parseJSON`
+- script: 数据会被当作 javascript 代码来执行
+- html: 返回普通的文本，但其中包含的 script 标签里的内容将会在这段文本被插入 DOM 时执行
+
+结合我们上面的 nodejs 服务，我们可以做这样的使用:
+
+```js
+$.get({
+    url: 'http://127.0.0.1：1337',
+    success: function (response) {
+        console.log('Response from server is: %s', response);
+    }
+});
+```
+
+### getJSON
+
+```js
+jQuery.getJSON( url [, data ] [, success ] )
+```
+
+这个方法其实就是将 `get` 方法的 `dataType` 参数指定为 `json`。用法与 `get` 相同，这里不赘述。
+
+### getScript
+
+```js
+jQuery.getScript( url [, success ] )
+```
+
+这个方法其实就是将 `get` 方法的 `dataType` 参数指定为 `script`。用法与 `get` 相同，这里不赘述。
+
+### load
+
+```js
+.load( url [, data ] [, complete ] )
+```
+
+这个方法不是全局 `$` 上的，是 jQuery 节点对象上的，作用即把获得的结果作为 html 代码放入到调用的 jQuery 节点对象中。
+
+### post
+
+```js
+jQuery.post( [settings ] )
+jQuery.post( url [, data ] [, success ] [, dataType ] )
+```
+
+该方法参数以及用法和 `get` 相同，区别在于请求的方式为 `POST` 而非 `GET`。
 
 ## HOME WORK
+
+1. 做一个输入内容推荐功能，后端服务那边 js 里放一个固定的对象，模拟内容和推荐结果列表的关联，然后根据 AJAX 请求来的内容返回对应的结果。页面上根据返回结果动态的更改提示内容。
 
 ## 内容预告
 

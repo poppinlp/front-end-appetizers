@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Demo 2 | Front-end Appetizers</title>
+        <title>jQuery 6 | Front-end Appetizers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../posts/lesson-13.html" />
     
-    
-    <link rel="prev" href="../posts/lesson-11.html" />
+    <link rel="prev" href="../posts/advanced-lesson-5.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="12" data-basepath=".." data-revision="1426993401448">
+    <div class="book" data-level="21" data-basepath=".." data-revision="1426993401448">
     
 
 <div class="book-summary">
@@ -249,7 +247,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="12" data-path="posts/lesson-12.html">
+        <li class="chapter " data-level="12" data-path="posts/lesson-12.html">
             
                 
                     <a href="../posts/lesson-12.html">
@@ -393,7 +391,7 @@
         </li>
     
         
-        <li class="chapter " data-level="21" data-path="posts/advanced-lesson-6.html">
+        <li class="chapter active" data-level="21" data-path="posts/advanced-lesson-6.html">
             
                 
                     <a href="../posts/advanced-lesson-6.html">
@@ -497,19 +495,153 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_11">
+                    <section class="normal" id="section-gitbook_6">
                     
-                        <h1 id="front-end-foundation-course-12">Front end foundation course 12</h1>
-<h2 id="-part-2">综合实战 Part 2</h2>
+                        <h1 id="front-end-advanced-course-6">Front end advanced course 6</h1>
+<p>上节课的作业:</p>
 <ul>
-<li>simple dropdown</li>
-<li>simple tab</li>
-<li>vertical tab</li>
-<li>float control</li>
-<li>scrollspy</li>
+<li><a href="http://poppinlp.github.io/front-end-appetizers/homework/jquery5/1.html" target="_blank">第一题</a></li>
+<li><a href="http://poppinlp.github.io/front-end-appetizers/homework/jquery5/2.html" target="_blank">第二题</a></li>
 </ul>
-<p><strong>Fighting!</strong></p>
-<p>2015.01.18</p>
+<p>本节课的主要内容为:</p>
+<ul>
+<li>ajax 简介</li>
+<li>原生 ajax</li>
+<li>jQuery ajax</li>
+</ul>
+<h2 id="ajax-">ajax 简介</h2>
+<p>AJAX 即 Asynchronous Javascript And XML。它不是什么语言或者框架之类的东西，只是一种技术。
+传统的网页如果需要更新内容，那么可能需要重载整个网页，但 AJAX 技术可以使得网页在不重载的情况下，更新从服务器端拿到的新数据。
+其典型应用例如 Google 地图等。</p>
+<p><img src="http://ce.sysu.edu.cn/hope2011/UploadFiles/Education_UploadFiles_5303/201008/2010081001565386.jpg" alt="ajax"></p>
+<h2 id="">本地后端服务</h2>
+<p>之前课上我们简单介绍了 Nodejs，那么接下来我们就做一个基于 Nodejs 的简单后端服务，以完成我们后续 AJAX 的练习做准备:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);
+http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    res.writeHead(<span class="hljs-number">200</span>, {<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/plain'</span>});
+    res.end(<span class="hljs-string">'Hello World\n'</span>);
+}).listen(<span class="hljs-number">1337</span>, <span class="hljs-string">'127.0.0.1'</span>);
+</code></pre>
+<p>将以上代码保存至 server.js 文件，然后执行 <code>node server.js</code> 即可开启该服务。</p>
+<h2 id="-ajax">原生 ajax</h2>
+<p>由于 AJAX 技术已经得到了广泛的支持，所以我们只要新建相应的对象，设置好参数和回调函数，于是我们便可以完成一次 AJAX 请求:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> request;
+
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.XMLHttpRequest) {
+    request = <span class="hljs-keyword">new</span> XMLHttpRequest();
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.ActiveXObject) {
+    request = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">"Microsoft.XMLHTTP"</span>);
+}
+
+<span class="hljs-keyword">if</span> (request != <span class="hljs-literal">null</span>) {
+    request.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (request.readyState==<span class="hljs-number">4</span> &amp;&amp; request.status==<span class="hljs-number">200</span>) {
+            <span class="hljs-built_in">console</span>.log(request.responseText);
+        }
+    };
+    request.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">'http://127.0.0.1:1337'</span>, <span class="hljs-literal">true</span>);
+    request.send(<span class="hljs-literal">null</span>);
+} <span class="hljs-keyword">else</span> {
+    alert(<span class="hljs-string">"Your browser does not support XMLHTTP."</span>);
+}
+</code></pre>
+<h3 id="-ajax-">创建 AJAX 的发送对象</h3>
+<p>在上面代码中能看到，我们创建了一个用来产生 AJAX 请求的对象。通常情况下，这个对象会是 <code>XMLHttpRequest</code> 的实例，在 IE 6 中需要创建 <code>ActiveXObject</code>:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.XMLHttpRequest) {
+    request = <span class="hljs-keyword">new</span> XMLHttpRequest();
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.ActiveXObject) {
+    request = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">"Microsoft.XMLHTTP"</span>);
+}
+</code></pre>
+<h3 id="">开启请求</h3>
+<p>创建的对象实例拥有一个 <code>open</code> 方法用于开始准备这个请求。该方法接受 3 个参数，分别为：</p>
+<ul>
+<li>请求方式</li>
+<li>请求地址</li>
+<li>是否异步</li>
+</ul>
+<p>请求方式指的是这个请求的类型，通常使用为 <code>GET</code> 或 <code>POST</code>。
+其实规范中还包括 <code>OPTIONS</code>, <code>PUT</code>, <code>DELETE</code>, <code>HEAD</code>, <code>CONNECT</code>, <code>TRACE</code>，只是因为现在很多开发人员为了方(tou)便(lan)所以通常只有前两者。
+详细内容可以看<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank">官方规范</a>。</p>
+<p>请求地址即任意的 URL 地址，关于什么是 URL，可以看这篇<a href="http://baike.baidu.com/view/1496.htm" target="_blank">中文wiki</a>。</p>
+<p>例如我们上面代码中的 <code>open</code> 方法，它的意思准备向 <a href="http://127.0.0.1" target="_blank">http://127.0.0.1</a> 这个地址，使用 <code>GET</code> 方式，发送一个异步请求。</p>
+<h3 id="">发送请求</h3>
+<p>同样，创建的对象实例拥有一个 <code>send</code> 方法用于发送之前准备的请求。该方法接受一个参数，即需要发送的数据。</p>
+<h3 id="-readystatechange-">监听 readystatechange 事件</h3>
+<p>当请求发出后，服务器端会进行响应并返回给我们结果，那这些结果就可以通过事件监听的方式获得。这里需要注意的是，最好在请求 <code>open</code> 和 <code>send</code> 前就设置好监听事件。</p>
+<p><code>readyState</code> 这个状态存在以下 5 种情况：</p>
+<ul>
+<li>0: 请求未初始化</li>
+<li>1: 服务器连接已建立</li>
+<li>2: 请求已接收</li>
+<li>3: 请求处理中</li>
+<li>4: 请求已完成，且响应已就绪</li>
+</ul>
+<p><code>state</code> 状态即 HTML 状态码，它的值很多，其中 200 表示相应结果 OK，也就是我们常用的判断值。
+它的值很多，我们这里不做过多的介绍，有兴趣的同学可以看看<a href="http://baike.baidu.com/link?url=Z9ah_T97cUHrSW4OKiPMMvrVbFGST2u0kjKo0NqJXmxYlvL3rgzckQBIpmz7KombmmB3KGVNdpIeit0nsL-cGK" target="_blank">这篇wiki</a>。</p>
+<h3 id="">获取返回结果</h3>
+<p>在合适的状态时，我们便能获取到请求的返回结果。这个结果会被放在请求实例的 <code>responseText</code> 属性中，直接使用即可。</p>
+<p>至此我们便完成了一个 AJAX 请求的发送并通过监听状态拿到了返回结果，之后需要对结果做什么处理就可以自由发挥了。</p>
+<h2 id="jquery-ajax-1">jQuery ajax 1</h2>
+<p>上面我们介绍了原生 js 如果做 AJAX 请求，那么既然我们使用了 jQuery，自然可以使用 jQuery 中更方便的封装。那么接下来我们看看 jQuery 中是如何封装的。</p>
+<ul>
+<li>get</li>
+<li>getJSON</li>
+<li>getScript</li>
+<li>load</li>
+<li>post</li>
+</ul>
+<h3 id="get">get</h3>
+<pre><code class="lang-js">jQuery.get( [settings ] )
+jQuery.get( url [, data ] [, success ] [, dataType ] )
+</code></pre>
+<p>其中 <code>settings</code> 包含四个可设置的值:</p>
+<ul>
+<li><code>url</code>: 请求的目标地址</li>
+<li><code>data</code>: 需要发送的数据</li>
+<li><code>success</code>: 请求成功后的回调函数</li>
+<li><code>dataType</code>: 预期服务器返回的数据类型，xml | json | script | html</li>
+</ul>
+<p>这里需要注意的一点是，对于 <code>dataType</code> 不同，数据的默认处理方式也不一样:</p>
+<ul>
+<li>xml: 数据会被尝试按照 xml 解析，即调用 <code>parseXML</code></li>
+<li>json: 数据会被尝试按照 json 解析，即调用 <code>parseJSON</code></li>
+<li>script: 数据会被当作 javascript 代码来执行</li>
+<li>html: 返回普通的文本，但其中包含的 script 标签里的内容将会在这段文本被插入 DOM 时执行</li>
+</ul>
+<p>结合我们上面的 nodejs 服务，我们可以做这样的使用:</p>
+<pre><code class="lang-js">$.get({
+    url: <span class="hljs-string">'http://127.0.0.1：1337'</span>,
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(response)</span> </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Response from server is: %s'</span>, response);
+    }
+});
+</code></pre>
+<h3 id="getjson">getJSON</h3>
+<pre><code class="lang-js">jQuery.getJSON( url [, data ] [, success ] )
+</code></pre>
+<p>这个方法其实就是将 <code>get</code> 方法的 <code>dataType</code> 参数指定为 <code>json</code>。用法与 <code>get</code> 相同，这里不赘述。</p>
+<h3 id="getscript">getScript</h3>
+<pre><code class="lang-js">jQuery.getScript( url [, success ] )
+</code></pre>
+<p>这个方法其实就是将 <code>get</code> 方法的 <code>dataType</code> 参数指定为 <code>script</code>。用法与 <code>get</code> 相同，这里不赘述。</p>
+<h3 id="load">load</h3>
+<pre><code class="lang-js">.load( url [, data ] [, complete ] )
+</code></pre>
+<p>这个方法不是全局 <code>$</code> 上的，是 jQuery 节点对象上的，作用即把获得的结果作为 html 代码放入到调用的 jQuery 节点对象中。</p>
+<h3 id="post">post</h3>
+<pre><code class="lang-js">jQuery.post( [settings ] )
+jQuery.post( url [, data ] [, success ] [, dataType ] )
+</code></pre>
+<p>该方法参数以及用法和 <code>get</code> 相同，区别在于请求的方式为 <code>POST</code> 而非 <code>GET</code>。</p>
+<h2 id="home-work">HOME WORK</h2>
+<ol>
+<li>做一个输入内容推荐功能，后端服务那边 js 里放一个固定的对象，模拟内容和推荐结果列表的关联，然后根据 AJAX 请求来的内容返回对应的结果。页面上根据返回结果动态的更改提示内容。</li>
+</ol>
+<h2 id="">内容预告</h2>
+<ol>
+<li>jQuery ajax 2</li>
+</ol>
 
                     
                     </section>
@@ -520,10 +652,8 @@
         </div>
 
         
-        <a href="../posts/lesson-11.html" class="navigation navigation-prev " aria-label="Previous page: Demo 1"><i class="fa fa-angle-left"></i></a>
+        <a href="../posts/advanced-lesson-5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: jQuery 5"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../posts/lesson-13.html" class="navigation navigation-next " aria-label="Next page: Demo 3"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
