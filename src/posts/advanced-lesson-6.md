@@ -9,7 +9,7 @@
 
 - ajax 简介
 - 原生 ajax
-- jQuery ajax
+- jQuery ajax 1
 
 ## ajax 简介
 
@@ -189,7 +189,7 @@ jQuery.post( url [, data ] [, success ] [, dataType ] )
 
 ## HOME WORK
 
-1. 做一个输入内容推荐功能，后端服务那边 js 里放一个固定的对象，模拟内容和推荐结果列表的关联，然后根据 AJAX 请求来的内容返回对应的结果。页面上根据返回结果动态的更改提示内容。
+1. 复习已学内容
 
 ## 内容预告
 
