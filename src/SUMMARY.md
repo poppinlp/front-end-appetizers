@@ -21,3 +21,4 @@
 - [jQuery 4](posts/advanced-lesson-4.md)
 - [jQuery 5](posts/advanced-lesson-5.md)
 - [jQuery 6](posts/advanced-lesson-6.md)
+- [jQuery 7](posts/advanced-lesson-7.md)
