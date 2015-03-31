@@ -2,7 +2,16 @@
 
 本节课的主要内容为:
 
-- git
+- linux 基础操作 1
+- git 操作 1
+
+## linux 基础操作 1
+
+- ls
+- cd
+- touch
+- mkdir
+- rm
 
 ## git 是什么
 
@@ -27,9 +36,6 @@ Git是一款免费、开源的分布式版本控制系统(CVS)，用于敏捷高
 - add
 - commit
 - log
-- push
-- pull
-- checkout
 
 ## HOME WORK
 
