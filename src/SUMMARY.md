@@ -24,3 +24,5 @@
 - [jQuery 7](posts/advanced-lesson-7.md)
 - [Git 1](posts/advanced-lesson-8.md)
 - [Git 2](posts/advanced-lesson-9.md)
+- [Git 3](posts/advanced-lesson-10.md)
+- [Javascript 5](posts/advanced-lesson-11.md)

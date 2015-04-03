@@ -2,16 +2,26 @@
 
 本节课的主要内容为:
 
-- linux 基础操作 1
-- git 操作 1
+- linux 基础命令 1
+- git 基础操作 1
 
-## linux 基础操作 1
+## linux 基础命令 1
 
-- ls
-- cd
-- touch
-- mkdir
-- rm
+### ls
+
+```shell
+ls [OPTION]... [FILE]...
+```
+
+更多参数介绍可以看[这篇文章](http://linux.about.com/od/commands/l/blcmdl1_ls.htm)
+
+### cd
+
+### touch
+
+### mkdir
+
+### rm
 
 ## git 是什么
 
@@ -39,4 +49,9 @@ Git是一款免费、开源的分布式版本控制系统(CVS)，用于敏捷高
 
 ## HOME WORK
 
+1. 自由练习
+
 ## 内容预告
+
+- linux 基础命令 2
+- git 基础操作 2
