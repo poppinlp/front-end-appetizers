@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Javascript 1 | Front-end Appetizers</title>
+        <title>Git 3 | Front-end Appetizers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../posts/lesson-6.html" />
+    <link rel="next" href="../posts/advanced-lesson-11.html" />
     
     
-    <link rel="prev" href="../posts/lesson-4.html" />
+    <link rel="prev" href="../posts/advanced-lesson-9.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5" data-basepath=".." data-revision="1428408173577">
+    <div class="book" data-level="25" data-basepath=".." data-revision="1428408173577">
     
 
 <div class="book-summary">
@@ -137,7 +137,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5" data-path="posts/lesson-5.html">
+        <li class="chapter " data-level="5" data-path="posts/lesson-5.html">
             
                 
                     <a href="../posts/lesson-5.html">
@@ -457,7 +457,7 @@
         </li>
     
         
-        <li class="chapter " data-level="25" data-path="posts/advanced-lesson-10.html">
+        <li class="chapter active" data-level="25" data-path="posts/advanced-lesson-10.html">
             
                 
                     <a href="../posts/advanced-lesson-10.html">
@@ -577,158 +577,23 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_23">
+                    <section class="normal" id="section-gitbook_15">
                     
-                        <h1 id="front-end-foundation-course-5">Front end foundation course 5</h1>
-<h2 id="javascript--part-1">JavaScript 基础 Part 1</h2>
-<h3 id="-javascript">什么是 JavaScript</h3>
-<p>JavaScript（以下简称JS）是一种动态脚本语言，弱类型，继承基于原型。遵循的规范是 ECMAScript。</p>
-<h3 id="-js">如何引入 JS</h3>
+                        <h1 id="front-end-advanced-course-10">Front end advanced course 10</h1>
+<p>本节课的主要内容为:</p>
 <ul>
-<li>外部文件</li>
-<li>内部脚本</li>
+<li>git 操作 3</li>
+<li>github 客户端使用</li>
 </ul>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">''</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-comment">// do some stuff</span>
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<h3 id="hello-world">Hello world</h3>
-<pre><code class="lang-js"><span class="hljs-comment">// 输出 Helloworld 字符串</span>
-<span class="hljs-keyword">var</span> x = <span class="hljs-string">'Hello'</span>,
-    y = <span class="hljs-string">'world'</span>;
-
-<span class="hljs-built_in">console</span>.log(x+y);
-</code></pre>
-<p>上面是一个例子，它会在控制台输出 Helloworld 字符串，那么我们能从例子中得到什么：</p>
+<h2 id="git--3">git 操作 3</h2>
 <ul>
-<li>一句话结尾的分号可有可无（个人推荐写上）,不写时解析环境会猜测执行</li>
-<li>用 <code>/* some stuff */</code> 或 <code>// some stuff</code> 表示注释</li>
+<li>checkout</li>
+<li>branch</li>
+<li>merge</li>
 </ul>
-<h3 id="js-">JS 如何申明变量</h3>
-<p>JS 中通过 <code>var 标识符</code> 来申明变量，其中标识符即最终的变量名，如上例中的 <code>x</code> 和 <code>y</code>。标识符的使用需要注意几个地方：</p>
-<ul>
-<li>只能包含数字、大小写英文字母、下划线(_)和美元符号($)</li>
-<li>不能以数字开头</li>
-<li>不能为保留字或关键字</li>
-<li>大小写敏感</li>
-<li>实际开发中标识符尽量语义化</li>
-</ul>
-<p><em>关于 JS 的保留字和关键字，可以看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Reserved_words" target="_blank">这个列表</a></em></p>
-<h3 id="js-">JS 基础数据类型</h3>
-<p>JS 中的数据类型可以分为两类，原始类型和引用类型。</p>
-<h4 id="">原始类型</h4>
-<p>原始类型包含五种：<code>Undefined</code>, <code>Null</code>, <code>String</code>, <code>Number</code>, <code>Boolean</code>。</p>
-<ul>
-<li>Undefined</li>
-<li>Null</li>
-<li>String</li>
-<li>Number</li>
-<li>Boolean</li>
-</ul>
-<h4 id="">引用类型</h4>
-<ul>
-<li>Object</li>
-<li>Array</li>
-<li>Date</li>
-<li>RegExp</li>
-<li>Function</li>
-</ul>
-<h4 id="">区别</h4>
-<p>非常重要的一点就是值和引用（指针）。</p>
-<h4 id="typeof">typeof</h4>
-<p><code>typeof</code> 操作用于检测变量的类型，使用方法为 <code>typeof 变量名</code>，常见值的列表如下：</p>
-<pre><code>Undefined            &quot;undefined&quot;
-Null                &quot;object&quot;
-Boolean                &quot;boolean&quot;
-Number                &quot;number&quot;
-String                &quot;string&quot;
-Function object     &quot;function&quot;
-Any other object    &quot;object&quot;
-</code></pre><h3 id="js-">JS 中的运算</h3>
-<h4 id="">常见算数运算</h4>
-<ul>
-<li>+<ul>
-<li>+val</li>
-<li>val + val</li>
-</ul>
-</li>
-<li>-<ul>
-<li>-val</li>
-<li>val - val</li>
-</ul>
-</li>
-<li>*</li>
-<li>/</li>
-<li>%</li>
-<li>++<ul>
-<li>++val</li>
-<li>val++</li>
-</ul>
-</li>
-<li>--<ul>
-<li>--val</li>
-<li>val--</li>
-</ul>
-</li>
-</ul>
-<h4 id="">逻辑运算</h4>
-<ul>
-<li>&amp;&amp;</li>
-<li>||</li>
-<li>!</li>
-</ul>
-<h4 id="">常见比较运算</h4>
-<ul>
-<li>&gt;</li>
-<li><blockquote>
-<p>=</p>
-</blockquote>
-</li>
-<li>&lt;</li>
-<li>&lt;=</li>
-<li>==</li>
-<li>===</li>
-<li>!=</li>
-<li>!==</li>
-</ul>
-<h4 id="">位运算</h4>
-<ul>
-<li>~</li>
-<li>&amp;</li>
-<li>|</li>
-<li>^</li>
-<li>&lt;&lt;</li>
-<li>&lt;&lt;&lt;</li>
-<li><blockquote>
-<p>&gt;</p>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<p>&gt;</p>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<h4 id="">赋值运算</h4>
-<ul>
-<li>val = val</li>
-<li>val operate= val</li>
-</ul>
-<h3 id="">练习</h3>
-<ol>
-<li>申明变量 <code>home</code>，赋值 &#39;China&#39;，输出到控制台。</li>
-<li>试一试各种运算符</li>
-</ol>
-<h2 id="">预告</h2>
-<p>下节课的主要内容如下：</p>
-<ul>
-<li>JS 流程控制</li>
-<li>Array, String 对象的常用方法</li>
-</ul>
-<p><strong>Fighting!</strong></p>
-<p>2014.12.14</p>
+<h2 id="github-">github 客户端使用</h2>
+<h2 id="home-work">HOME WORK</h2>
+<h2 id="">内容预告</h2>
 
                     
                     </section>
@@ -739,10 +604,10 @@ Any other object    &quot;object&quot;
         </div>
 
         
-        <a href="../posts/lesson-4.html" class="navigation navigation-prev " aria-label="Previous page: CSS 2"><i class="fa fa-angle-left"></i></a>
+        <a href="../posts/advanced-lesson-9.html" class="navigation navigation-prev " aria-label="Previous page: Git 2"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../posts/lesson-6.html" class="navigation navigation-next " aria-label="Next page: Javascript 2"><i class="fa fa-angle-right"></i></a>
+        <a href="../posts/advanced-lesson-11.html" class="navigation navigation-next " aria-label="Next page: Javascript 5"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
