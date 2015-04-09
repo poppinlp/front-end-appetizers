@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>jQuery 1 | Front-end Appetizers</title>
+        <title>Javascript 6 | Front-end Appetizers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../posts/advanced-lesson-2.html" />
     
-    
-    <link rel="prev" href="../posts/lesson-15.html" />
+    <link rel="prev" href="../posts/advanced-lesson-11.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="16" data-basepath=".." data-revision="1428574461522">
+    <div class="book" data-level="27" data-basepath=".." data-revision="1428574461522">
     
 
 <div class="book-summary">
@@ -313,7 +311,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="16" data-path="posts/advanced-lesson-1.html">
+        <li class="chapter " data-level="16" data-path="posts/advanced-lesson-1.html">
             
                 
                     <a href="../posts/advanced-lesson-1.html">
@@ -489,7 +487,7 @@
         </li>
     
         
-        <li class="chapter " data-level="27" data-path="posts/advanced-lesson-12.html">
+        <li class="chapter active" data-level="27" data-path="posts/advanced-lesson-12.html">
             
                 
                     <a href="../posts/advanced-lesson-12.html">
@@ -593,115 +591,29 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_4">
                     
-                        <h1 id="front-end-advanced-course-1">Front end advanced course 1</h1>
-<blockquote>
-<p>之前的内容为基础课程，从这里开始我们进入进阶课程。</p>
-</blockquote>
+                        <h1 id="front-end-advanced-course-12">Front end advanced course 12</h1>
 <p>本节课的主要内容为:</p>
 <ul>
-<li>jQuery 初识</li>
-<li>jQuery 选择器</li>
-<li>关于 $ 函数</li>
-<li>关于 jQuery 对象</li>
-<li>常用 DOM 方法</li>
+<li>原型和原型链</li>
 </ul>
-<h2 id="jquery-">jQuery 初识</h2>
-<p>jQuery 是由美国人 John Resig 于 2006 年创建的一个开源项目，基本功能包含访问和操作 DOM、控制页面样式、处理页面事件、便捷的动画、便捷的 AJAX 等。</p>
-<p>大家可以通过<a href="http://code.jquery.com/jquery-2.1.3.min.js" target="_blank">这个链接</a>下载到 jQuery 2.1.3 的压缩版本，请大家下载好后创建一个新的 HTML 页面并引入 jQuery。</p>
-<h2 id="jquery-">jQuery 选择器</h2>
-<p>我们在基础班的课程中有讲过 CSS 选择器，jQuery 选择器即通过 <code>$</code> 这个构造函数，按照 CSS 选择器的规则（以及一些 jQuery 中的增强规则）来选择页面中的元素。</p>
-<p>比如对于这段 HTML:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">wrapper”</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">”last”</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-</code></pre>
-<p>使用 <code>$(&quot;.wrapper&quot;)</code> 即可选中包含 wrapper 类的 div 元素，使用 <code>$(&quot;li&quot;)</code> 即可选中所有 li 标签。</p>
-<h2 id="--">关于 $ 函数</h2>
-<p>通过 <code>console.log($)</code> 输出其内容，我们可以看到如下代码:</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(a,b)</span></span>{<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> _.fn.init(a,b)}
-</code></pre>
-<p>从这里我们可以看出，<code>$</code> 其实是对一个构建函数的封装。而通过 jQeury 源代码可以看出，<code>$.fn.init</code> 函数的功能即是通过判断传入的第一个参数的类型，来进行不同的处理。
-如字符串则尝试作为选择器或者 HTML 代码等、jQuery 对象则返回、函数则根据时机来立即执行或者插入 ready 事件队列中等等。</p>
-<p>这可以算是 jQuery 使用中最常用到的函数，也因为是 jQuery 的工厂函数而十分重要。有兴趣的同学可以自行阅读其相关源代码。</p>
-<h2 id="-jquery-">关于 jQuery 对象</h2>
-<p>jQuery 的 $ 构造函数返回结果即是一个对象组成的数组，为了与原生 DOM 节点对象区分开，故这些对象可称之为 jQuery 节点对象。</p>
-<p>每个 jQuery 对象上有 jQuery 的各种方法，就像原生 DOM 节点对象上会有各种方法和属性一样。
-但由于他们不是同一个东西，所以不能混用。例如原生 DOM 对象上有 <code>innerHTML</code> 属性，而 jQuery 对象上并没有，所以如果在 jQuery 对象上获取这个属性，便会得到 <code>undefined</code>。</p>
-<p>另外，当返回的数组中包含多个 jQuery 对象时，即匹配到了多个元素，那么对其执行操作会对每个对象都生效，如:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
-</code></pre>
-<p>对于上面的 HTML 代码，执行如下 JS 代码:</p>
-<pre><code class="lang-js">$(<span class="hljs-string">'li'</span>).html(<span class="hljs-string">"yo, what's up man?"</span>);
-</code></pre>
-<p>那么每个 li 标签中的文字都会发生更改。</p>
-<p>由于 jQuery 的很多方法的返回结果都是该 jQuery 对象本身，所以 jQuery 可以很方便的执行链式操作，如:</p>
-<pre><code class="lang-js">$(<span class="hljs-string">'.selector'</span>).addClass(<span class="hljs-string">'className'</span>).html(<span class="hljs-string">'htmlCode'</span>);
-</code></pre>
-<h2 id="-dom-">常用 DOM 方法</h2>
-<h3 id="">节点获取</h3>
-<ul>
-<li>find</li>
-<li>children</li>
-<li>parent</li>
-<li>next</li>
-<li>prev</li>
-<li>siblings</li>
-</ul>
-<h3 id="css-">CSS 和属性操作</h3>
-<ul>
-<li>css</li>
-<li>attr</li>
-<li>prop</li>
-<li>val</li>
-<li>hasClass / removeClass / addClass / toggleClass</li>
-<li>height / innerHeight / outerHeight</li>
-<li>width / innerWidth / outerWidth</li>
-<li>offset</li>
-<li>scrollLeft / scrollTop</li>
-<li>data / hasData / removeData</li>
-</ul>
-<h3 id="dom-">DOM 操作</h3>
-<ul>
-<li>html</li>
-<li>text</li>
-<li>append / appendTo</li>
-<li>prepend / prependTo</li>
-<li>wrap / unwrap</li>
-<li>before / after</li>
-<li>remove</li>
-<li>empty</li>
-</ul>
-<h3 id="">集合筛选</h3>
-<ul>
-<li>eq</li>
-<li>first</li>
-<li>last</li>
-<li>slice</li>
-<li>filter</li>
-<li>map</li>
-</ul>
+<h2 id="">引</h2>
+<p>上节课我们讲了类以及通过 <code>new</code> 操作符和构造函数来创建实例。现在我们来做一个简单的练习：</p>
+<blockquote>
+<blockquote>
+<p>创建一个 Animal 类，包含 name 属性和 tail 方法用于打印出自己的名字，生成一个它的实例并调用 talk 方法</p>
+</blockquote>
+</blockquote>
+<p>这个需求并不难，相信大家很快就做出来了。于是乎现在希望大家多生成几个实例，当然这也很容易。那么问题来了，这些实例有任何的交叉点么？或者我描述这么一个需求：</p>
+<blockquote>
+<blockquote>
+<p>当我们创建多个实例后，现在 Animal 希望添加一个 run 方法，或者说 talk 方法需要修改成说出 ‘hello’</p>
+</blockquote>
+</blockquote>
+<p>那么我们该如何实现呢？</p>
 <h2 id="home-work">HOME WORK</h2>
-<ol>
-<li>用 jQuery 实现，做一个时钟，动态显示当前时间。要求定位部分也用 jQuery 实现，而非直接写 CSS。</li>
-<li>用 jQuery 实现，页面中一个红色的方块从左上角开始，向右移动，到右边贴着屏幕边缘后停止。要求页面文档 <code>body</code> 节点中不直接写任何 HTML 代码，都用 jQuery 来做，移动部分不使用动画相关函数，自行修改位置来实现。</li>
-</ol>
 <h2 id="">内容预告</h2>
-<ul>
-<li>jQuery 事件</li>
-<li>jQuery 动画</li>
-</ul>
-<h2 id="">补充阅读</h2>
-<p><strong><a href="http://overapi.com/jquery/" target="_blank">在线 jQuery API 列表</a></strong></p>
 
                     
                     </section>
@@ -712,10 +624,8 @@
         </div>
 
         
-        <a href="../posts/lesson-15.html" class="navigation navigation-prev " aria-label="Previous page: Demo 5"><i class="fa fa-angle-left"></i></a>
+        <a href="../posts/advanced-lesson-11.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Javascript 5"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../posts/advanced-lesson-2.html" class="navigation navigation-next " aria-label="Next page: jQuery 2"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
