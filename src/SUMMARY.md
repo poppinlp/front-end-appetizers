@@ -27,3 +27,4 @@
 - [Git 3](posts/advanced-lesson-10.md)
 - [Javascript 5](posts/advanced-lesson-11.md)
 - [Javascript 6](posts/advanced-lesson-12.md)
+- [Javascript 7](posts/advanced-lesson-13.md)
