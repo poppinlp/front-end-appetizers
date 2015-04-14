@@ -38,7 +38,7 @@ function f() {
 }
 
 console.log(test); // 123
-f(); qq
+f();
 console.log(test); // 234
 ```
 
