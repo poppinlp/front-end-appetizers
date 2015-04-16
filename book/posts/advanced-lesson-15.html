@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>jQuery 5 | Front-end Appetizers</title>
+        <title>Javascript 9 | Front-end Appetizers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../posts/advanced-lesson-6.html" />
     
-    
-    <link rel="prev" href="../posts/advanced-lesson-4.html" />
+    <link rel="prev" href="../posts/advanced-lesson-14.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="20" data-basepath=".." data-revision="1429187734696">
+    <div class="book" data-level="30" data-basepath=".." data-revision="1429187734696">
     
 
 <div class="book-summary">
@@ -377,7 +375,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="20" data-path="posts/advanced-lesson-5.html">
+        <li class="chapter " data-level="20" data-path="posts/advanced-lesson-5.html">
             
                 
                     <a href="../posts/advanced-lesson-5.html">
@@ -537,7 +535,7 @@
         </li>
     
         
-        <li class="chapter " data-level="30" data-path="posts/advanced-lesson-15.html">
+        <li class="chapter active" data-level="30" data-path="posts/advanced-lesson-15.html">
             
                 
                     <a href="../posts/advanced-lesson-15.html">
@@ -641,86 +639,15 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_9">
                     
-                        <h1 id="front-end-advanced-course-5">Front end advanced course 5</h1>
-<p>上节课的作业:</p>
-<ul>
-<li><a href="http://poppinlp.github.io/front-end-appetizers/homework/jquery4/1.html" target="_blank">第一题</a></li>
-</ul>
+                        <h1 id="front-end-advanced-course-15">Front end advanced course 15</h1>
 <p>本节课的主要内容为:</p>
 <ul>
-<li>jQuery 实战 2</li>
+<li>pushState</li>
 </ul>
-<h2 id="jquery--2">jQuery 实战 2</h2>
-<p>这是几节理论课后的第二次实战课，我们会尝试着把之前学的理论实践成更有意思的东西，也希望在这个过程中教会大家一些思考方法。</p>
-<h3 id="-slider">更通用的 slider</h3>
-<p>我们上次的作业已经实现了最基础的 slider，基础到十分简陋。但这并无所谓，因为我们现在是在学习核心逻辑部分，所以样式的部分可以先不用那么在意。</p>
-<p>我们之前讲 tab 的部分时，说到了如何让它变得更通用，那么这里的 slider 其实也是一个常见的组件，那么我们该怎么做呢？</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initSlider</span><span class="hljs-params">(selContainer, config)</span> </span>{
-    <span class="hljs-keyword">var</span> $slider = $(selContainer),
-        _config = {
-            selTrigger: <span class="hljs-string">'.js-slider-trigger'</span>,
-            selSheet: <span class="hljs-string">'.js-slider-sheet'</span>,
-            activeClass: <span class="hljs-string">'active'</span>,
-            autoTrigger: <span class="hljs-literal">true</span>,
-            delay: <span class="hljs-number">2000</span>
-        };
-
-    <span class="hljs-keyword">if</span> (!$slider.length) <span class="hljs-keyword">return</span>;
-
-    $.extend(_config, config);
-
-    <span class="hljs-keyword">var</span> $sheets = $slider.find(_config.selSheet),
-            slideSize = $sheets.length,
-            nowIndex = <span class="hljs-number">0</span>,
-            autoTimer = <span class="hljs-literal">null</span>;
-
-    <span class="hljs-keyword">if</span> (!slideSize) <span class="hljs-keyword">return</span>;
-
-    <span class="hljs-keyword">if</span> (_config.autoTrigger) {
-        autoTrigger();
-    }
-
-    $slider.delegate(_config.trigger, <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
-        <span class="hljs-keyword">var</span> $target = $(e.target);
-
-        <span class="hljs-keyword">if</span> ($target.data(<span class="hljs-string">'action'</span>) === <span class="hljs-string">'left'</span>) {
-            handleTriggerLeft();
-        } <span class="hljs-keyword">else</span> {
-            handleTriggerRight();
-        }
-    });
-
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleTriggerLeft</span><span class="hljs-params">()</span> </span>{
-        $sheets.eq(nowIndex).removeClass(_config.activeClass);
-        nowIndex = (--nowIndex + slideSize) % slideSize;
-        $sheets.eq(nowIndex).addClass(_config.activeClass);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleTriggerRight</span><span class="hljs-params">()</span> </span>{
-        $sheets.eq(nowIndex).removeClass(_config.activeClass);
-        nowIndex = ++nowIndex % slideSize;
-        $sheets.eq(nowIndex).addClass(_config.activeClass);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autoTrigger</span><span class="hljs-params">()</span> </span>{
-       <span class="hljs-keyword">if</span> (autoTimer)  <span class="hljs-keyword">return</span>;
-        autoTimer = setInterval(handleTriggerRight, _config.delay);
-    }
-}
-</code></pre>
-<h3 id="dropdown">dropdown</h3>
-<p>dropdown 即类似于<a href="http://getbootstrap.com/javascript/#dropdowns" target="_blank">这样</a>的组件，大家来讨论一下如何实现它。</p>
 <h2 id="home-work">HOME WORK</h2>
-<ol>
-<li>dropdown 的具体实现</li>
-<li>尝试让它更通用些</li>
-</ol>
 <h2 id="">内容预告</h2>
-<ol>
-<li>ajax</li>
-</ol>
 
                     
                     </section>
@@ -731,10 +658,8 @@
         </div>
 
         
-        <a href="../posts/advanced-lesson-4.html" class="navigation navigation-prev " aria-label="Previous page: jQuery 4"><i class="fa fa-angle-left"></i></a>
+        <a href="../posts/advanced-lesson-14.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Javascript 8"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../posts/advanced-lesson-6.html" class="navigation navigation-next " aria-label="Next page: jQuery 6"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

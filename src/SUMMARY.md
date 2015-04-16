@@ -29,3 +29,4 @@
 - [Javascript 6](posts/advanced-lesson-12.md)
 - [Javascript 7](posts/advanced-lesson-13.md)
 - [Javascript 8](posts/advanced-lesson-14.md)
+- [Javascript 9](posts/advanced-lesson-15.md)
