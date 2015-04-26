@@ -7,3 +7,6 @@
 ## HOME WORK
 
 ## 内容预告
+
+- switch demo
+- CSS3: transition

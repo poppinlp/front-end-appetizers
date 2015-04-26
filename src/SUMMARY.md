@@ -30,3 +30,5 @@
 - [Javascript 7](posts/advanced-lesson-13.md)
 - [Javascript 8](posts/advanced-lesson-14.md)
 - [Javascript 9](posts/advanced-lesson-15.md)
+- [Demo 6](posts/advanced-lesson-16.md)
+- [Demo 7](posts/advanced-lesson-17.md)
