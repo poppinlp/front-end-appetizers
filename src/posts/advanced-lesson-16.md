@@ -58,8 +58,8 @@
 	display:inline-block;
 	overflow:hidden;
 	position:relative;
-	border:solid 1px #999;
-	background-color:#999;
+	border:solid 1px #ccc;
+	background-color:#ccc;
 	height:25px;
 	width:60px;
 }
@@ -82,7 +82,7 @@
 	overflow:hidden;
 	position:relative;
 	border:solid 1px #69f;
-	background-color:#999;
+	background-color:#ccc;
 	height:25px;
 	width:60px;
 }
@@ -108,7 +108,7 @@ var flag = false,
 	
 $switch.bind('click', function () {
 	if (flag) {
-		$switch.css('border-color', '#999');
+		$switch.css('border-color', '#ccc');
 		$switchBtn.css('left', '-35px');
 	} else {
 		$switch.css('border-color', '#69f');
@@ -129,8 +129,8 @@ CSS：
 	display:inline-block;
 	overflow:hidden;
 	position:relative;
-	border:solid 1px #999;
-	background-color:#999;
+	border:solid 1px #ccc;
+	background-color:#ccc;
 	height:25px;
 	width:60px;
 }
@@ -196,8 +196,8 @@ input:checked ~ label .switch-btn{
 	display:inline-block;
 	overflow:hidden;
 	position:relative;
-	border:solid 1px #999;
-	background-color:#999;
+	border:solid 1px #ccc;
+	background-color:#ccc;
 	height:25px;
 	width:60px;
 }
