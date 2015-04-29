@@ -2,7 +2,10 @@
     "title": "Front-end Appetizers",
     "description": "一套面向零基础初学者的教程",
     "isbn": null,
+    "gitbook": ">=2.0.1",
+    "output": "../book/",
     "extension": null,
+    "language": "zh-cn",
     "plugins": ["-mathjax", "baidu"],
     "pluginsConfig": {
         "baidu": {
