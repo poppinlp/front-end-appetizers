@@ -87,6 +87,39 @@ gem sources -a https://ruby.taobao.org/
 sass -v
 ```
 
+## Sass 初体验
+
+下面我们创建一个文件，包含以下内容，并保存为 `hello.scss`：
+
+```scss
+$dark: #333;
+$light: #999;
+
+@mixin inine-block() {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+}
+
+.hello {
+	color:$dark;
+	@include inline-block();
+	span {
+		color:$light;
+	}
+}
+```
+
+然后我们执行：
+
+```shell
+sass hello.scss
+```
+
+可以看看输出的代码是什么。看到输出的代码之后，也许你会觉得，哎呦，好像有点意思。恩，的确有点意思。
+
+现在对于这里代码你可能不明白，但你已经开启了 Sass 之门。不要着急，随后我们慢慢介绍 Sass 的用法。
+
 ## HOME WORK
 
 ## 内容预告

@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="33" data-basepath=".." data-revision="1430277290474">
+    <div class="book" data-level="33" data-basepath=".." data-revision="1430281242096">
     
 
 <div class="book-summary">
@@ -747,6 +747,30 @@ gem sources -a https://ruby.taobao.org/
 <p>安装完成后执行以下命令应该能正确输出 Sass 的版本号：</p>
 <pre><code class="lang-shell">sass -v
 </code></pre>
+<h2 id="sass-">Sass 初体验</h2>
+<p>下面我们创建一个文件，包含以下内容，并保存为 <code>hello.scss</code>：</p>
+<pre><code class="lang-scss"><span class="hljs-variable">$dark</span><span class="hljs-value">: <span class="hljs-hexcolor">#333</span>;</span>
+<span class="hljs-variable">$light</span><span class="hljs-value">: <span class="hljs-hexcolor">#999</span>;</span>
+
+<span class="hljs-at_rule">@<span class="hljs-keyword">mixin</span><span class="hljs-preprocessor"> inine-block</span>() {</span>
+    <span class="hljs-attribute">display</span><span class="hljs-value">:inline-block;</span>
+    *<span class="hljs-attribute">display</span><span class="hljs-value">:inline;</span>
+    *zoom<span class="hljs-value">:<span class="hljs-number">1</span>;</span>
+}
+
+<span class="hljs-class">.hello</span> {
+    <span class="hljs-attribute">color</span><span class="hljs-value">:<span class="hljs-variable">$dark</span>;</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> inline-block</span>();</span>
+    <span class="hljs-tag">span</span> {
+        <span class="hljs-attribute">color</span><span class="hljs-value">:<span class="hljs-variable">$light</span>;</span>
+    }
+}
+</code></pre>
+<p>然后我们执行：</p>
+<pre><code class="lang-shell">sass hello.scss
+</code></pre>
+<p>可以看看输出的代码是什么。看到输出的代码之后，也许你会觉得，哎呦，好像有点意思。恩，的确有点意思。</p>
+<p>现在对于这里代码你可能不明白，但你已经开启了 Sass 之门。不要着急，随后我们慢慢介绍 Sass 的用法。</p>
 <h2 id="home-work">HOME WORK</h2>
 <h2 id="">内容预告</h2>
 
