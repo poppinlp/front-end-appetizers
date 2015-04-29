@@ -32,4 +32,4 @@
 - [Javascript 9](posts/advanced-lesson-15.md)
 - [Demo 6](posts/advanced-lesson-16.md)
 - [Demo 7](posts/advanced-lesson-17.md)
-- [Demo 8](posts/advanced-lesson-18.md)
+- [Sass](posts/advanced-lesson-18.md)
