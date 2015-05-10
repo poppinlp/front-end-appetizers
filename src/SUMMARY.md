@@ -33,3 +33,5 @@
 - [Demo 6](posts/advanced-lesson-16.md)
 - [Demo 7](posts/advanced-lesson-17.md)
 - [Sass](posts/advanced-lesson-18.md)
+- [Sass 2](posts/advanced-lesson-19.md)
+- [Sass 3](posts/advanced-lesson-20.md)

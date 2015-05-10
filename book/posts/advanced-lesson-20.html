@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Demo 7 | Front-end Appetizers</title>
+        <title>Sass 3 | Front-end Appetizers</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -20,10 +20,8 @@
         
     
     
-    <link rel="next" href="../posts/advanced-lesson-18.html" />
     
-    
-    <link rel="prev" href="../posts/advanced-lesson-16.html" />
+    <link rel="prev" href="../posts/advanced-lesson-19.html" />
     
 
         
@@ -36,7 +34,7 @@
     
 
         
-    <div class="book" data-level="32" data-basepath=".." data-revision="Sun May 10 2015 20:03:49 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="35" data-basepath=".." data-revision="Sun May 10 2015 20:03:49 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -538,7 +536,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="32" data-path="posts/advanced-lesson-17.html">
+        <li class="chapter " data-level="32" data-path="posts/advanced-lesson-17.html">
             
                 
                     <a href="../posts/advanced-lesson-17.html">
@@ -583,7 +581,7 @@
             
         </li>
     
-        <li class="chapter " data-level="35" data-path="posts/advanced-lesson-20.html">
+        <li class="chapter active" data-level="35" data-path="posts/advanced-lesson-20.html">
             
                 
                     <a href="../posts/advanced-lesson-20.html">
@@ -701,15 +699,75 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="front-end-advanced-course-17">Front end advanced course 17</h1>
+                        <h1 id="front-end-advanced-course-20">Front end advanced course 20</h1>
 <p>&#x672C;&#x8282;&#x8BFE;&#x7684;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x4E3A;:</p>
 <ul>
-<li>progress bar demo</li>
-<li>CSS3: transform</li>
+<li>sass 3</li>
 </ul>
 <h2 id="%E5%BC%95">&#x5F15;</h2>
+<p>&#x6211;&#x4EEC;&#x4E0A;&#x8282;&#x8BFE;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E86; nesting, partial, import, operators &#x548C; comments &#x8FD9;&#x51E0;&#x4E2A; feature&#x3002;&#x8FD9;&#x8282;&#x8BFE;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x4ECB;&#x7ECD;&#x5176;&#x4ED6; feature&#x3002;</p>
+<h2 id="mixin">mixin</h2>
+<pre><code class="lang-scss"><span class="hljs-at_rule">@<span class="hljs-keyword">mixin</span><span class="hljs-preprocessor"> clearfix</span> {</span>
+  <span class="hljs-attribute">display</span><span class="hljs-value">: inline-block;</span>
+  &amp;<span class="hljs-pseudo">:after</span> {
+    <span class="hljs-attribute">content</span><span class="hljs-value">: <span class="hljs-string">&quot;.&quot;</span>;</span>
+    <span class="hljs-attribute">display</span><span class="hljs-value">: block;</span>
+    <span class="hljs-attribute">height</span><span class="hljs-value">: <span class="hljs-number">0</span>;</span>
+    <span class="hljs-attribute">clear</span><span class="hljs-value">: both;</span>
+    <span class="hljs-attribute">visibility</span><span class="hljs-value">: hidden;</span>
+  }
+  * <span class="hljs-tag">html</span> &amp; { <span class="hljs-attribute">height</span><span class="hljs-value">: <span class="hljs-number">1px</span> }
+}
+</span></code></pre>
+<pre><code class="lang-scss"><span class="hljs-at_rule">@<span class="hljs-keyword">mixin</span><span class="hljs-preprocessor"> border-radius</span>(<span class="hljs-variable">$radius</span>) {</span>
+  -webkit-<span class="hljs-attribute">border-radius</span><span class="hljs-value">: <span class="hljs-variable">$radius</span>;</span>
+     -moz-<span class="hljs-attribute">border-radius</span><span class="hljs-value">: <span class="hljs-variable">$radius</span>;</span>
+      -ms-<span class="hljs-attribute">border-radius</span><span class="hljs-value">: <span class="hljs-variable">$radius</span>;</span>
+          <span class="hljs-attribute">border-radius</span><span class="hljs-value">: <span class="hljs-variable">$radius</span>;</span>
+}
+
+<span class="hljs-class">.box</span> {
+    <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> border-radius</span>(<span class="hljs-number">10px</span>);</span>
+}
+</code></pre>
+<pre><code class="lang-scss"><span class="hljs-at_rule">@<span class="hljs-keyword">mixin</span><span class="hljs-preprocessor"> font</span>(<span class="hljs-variable">$size</span>:<span class="hljs-preprocessor"> 14px</span>) {</span>
+    <span class="hljs-attribute">font-size</span><span class="hljs-value">: <span class="hljs-variable">$size</span>;</span>
+}
+
+<span class="hljs-tag">body</span> {
+    <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> font</span>();</span>
+}
+</code></pre>
+<pre><code class="lang-scss"><span class="hljs-at_rule">@<span class="hljs-keyword">mixin</span><span class="hljs-preprocessor"> box-shadow</span>(<span class="hljs-variable">$shadows</span>...) {</span>
+  -moz-<span class="hljs-attribute">box-shadow</span><span class="hljs-value">: <span class="hljs-variable">$shadows</span>;</span>
+  -webkit-<span class="hljs-attribute">box-shadow</span><span class="hljs-value">: <span class="hljs-variable">$shadows</span>;</span>
+  <span class="hljs-attribute">box-shadow</span><span class="hljs-value">: <span class="hljs-variable">$shadows</span>;</span>
+}
+
+<span class="hljs-class">.shadows</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> box-shadow</span>(<span class="hljs-number">0px</span><span class="hljs-preprocessor"> 4px</span><span class="hljs-preprocessor"> 5px</span> <span class="hljs-hexcolor">#666</span>,<span class="hljs-preprocessor"> 2px</span><span class="hljs-preprocessor"> 6px</span><span class="hljs-preprocessor"> 10px</span> <span class="hljs-hexcolor">#999</span>);</span>
+}
+</code></pre>
+<h2 id="extend">extend</h2>
+<pre><code class="lang-scss"><span class="hljs-class">.message</span> {
+  <span class="hljs-attribute">border</span><span class="hljs-value">: <span class="hljs-number">1px</span> solid <span class="hljs-hexcolor">#ccc</span>;</span>
+  <span class="hljs-attribute">padding</span><span class="hljs-value">: <span class="hljs-number">10px</span>;</span>
+  <span class="hljs-attribute">color</span><span class="hljs-value">: <span class="hljs-hexcolor">#333</span>;</span>
+}  <span class="hljs-class">.success</span> { <span class="hljs-at_rule">@<span class="hljs-keyword">extend</span><span class="hljs-preprocessor"> .message</span>;</span> <span class="hljs-attribute">border-color</span><span class="hljs-value">: green;</span> }  <span class="hljs-class">.error</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">extend</span><span class="hljs-preprocessor"> .message</span>;</span>
+  <span class="hljs-attribute">border-color</span><span class="hljs-value">: red;</span>
+}
+
+<span class="hljs-class">.warning</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">extend</span><span class="hljs-preprocessor"> .message</span>;</span>
+  <span class="hljs-attribute">border-color</span><span class="hljs-value">: yellow;</span>
+}
+</code></pre>
 <h2 id="home-work">HOME WORK</h2>
 <h2 id="%E5%86%85%E5%AE%B9%E9%A2%84%E5%91%8A">&#x5185;&#x5BB9;&#x9884;&#x544A;</h2>
+<ul>
+<li>sass 3</li>
+</ul>
 
                     
                     </section>
@@ -720,10 +778,8 @@
         </div>
 
         
-        <a href="../posts/advanced-lesson-16.html" class="navigation navigation-prev " aria-label="Previous page: Demo 6"><i class="fa fa-angle-left"></i></a>
+        <a href="../posts/advanced-lesson-19.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Sass 2"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../posts/advanced-lesson-18.html" class="navigation navigation-next " aria-label="Next page: Sass"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
