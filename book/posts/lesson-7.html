@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 3"
         data-filepath="posts/lesson-7.md"
         data-basepath=".."
-        data-revision="Sun Jan 31 2016 10:43:32 GMT+0800 (中国标准时间)"
+        data-revision="Sun Jan 31 2016 20:28:42 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -879,6 +879,13 @@ obj.foo = <span class="hljs-string">&apos;bar&apos;</span>;
 <span class="hljs-keyword">typeof</span> str1; <span class="hljs-comment">// string</span>
 <span class="hljs-keyword">typeof</span> str2; <span class="hljs-comment">// object</span>
 </code></pre>
+<p>&#x4F46;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x53D6;&#x5C5E;&#x6027;&#x548C;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x7684;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B; JS &#x5F15;&#x64CE;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x4F18;&#x5316;&#xFF0C;&#x6027;&#x80FD;&#x4F1A;&#x6BD4;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x5E76;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x597D;&#x5F88;&#x591A;&#x3002;</p>
+<h3 id="&#x6570;&#x5B57;&#x5E38;&#x7528;&#x65B9;&#x6CD5;">&#x6570;&#x5B57;&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
+<p>&#x6570;&#x5B57;&#x4E0A;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x662F; <code>toFixed</code>&#xFF0C;&#x4F5C;&#x7528;&#x4E3A;&#x5C06;&#x6570;&#x5B57;&#x53D6;&#x5230;&#x5C0F;&#x6570;&#x70B9;&#x540E; N &#x4F4D;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#x91C7;&#x7528;&#x56DB;&#x820D;&#x4E94;&#x5165;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">(<span class="hljs-number">123</span>).toFixed(<span class="hljs-number">3</span>); <span class="hljs-comment">// 123.000</span>
+(<span class="hljs-number">123.123123</span>).toFixed(<span class="hljs-number">3</span>); <span class="hljs-comment">// 123.123</span>
+(<span class="hljs-number">123.123923</span>).toFixed(<span class="hljs-number">3</span>); <span class="hljs-comment">// 123.124</span>
+</code></pre>
 <h3 id="&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x7528;&#x65B9;&#x6CD5;">&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
 <h4 id="&#x5185;&#x5BB9;&#x83B7;&#x53D6;">&#x5185;&#x5BB9;&#x83B7;&#x53D6;</h4>
 <h5 id="&#x64CD;&#x4F5C;"><code>[]</code> &#x64CD;&#x4F5C;</h5>
@@ -967,7 +974,7 @@ obj.foo = <span class="hljs-string">&apos;bar&apos;</span>;
 <pre><code class="lang-javascript">str.toUpperCase();
 str.toLowerCase();
 </code></pre>
-<p>2&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;&#x539F;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x662F;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>2 &#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;&#x539F;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x662F;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> str = <span class="hljs-string">&apos;hello WORLD&apos;</span>;
 <span class="hljs-built_in">console</span>.log(str.toUpperCase()); <span class="hljs-comment">// &apos;HELLO WORLD&apos;</span>
 <span class="hljs-built_in">console</span>.log(str.toLowerCase()); <span class="hljs-comment">// &apos;hello world&apos;</span>
@@ -1040,7 +1047,7 @@ str.toLowerCase();
 <li>&#x7B80;&#x5355;&#x7684;&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;</li>
 <li>&#x5B9E;&#x73B0; <code>replace</code> &#x65B9;&#x6CD5;</li>
 </ol>
-<h3 id="&#x6570;&#x7EC4;&#x5E38;&#x7528;&#x65B9;&#x6CD5;">&#x6570;&#x7EC4;&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
+<h3 id="&#x6570;&#x7EC4;&#x5E38;&#x7528;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;">&#x6570;&#x7EC4;&#x5E38;&#x7528;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</h3>
 <h4 id="length">length</h4>
 <p><code>length</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x3002;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">&apos;test&apos;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
@@ -1152,16 +1159,76 @@ console.log(arr); // [4, 2, 1, -1]
 <p>&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x53C2;&#x8003;<a href="#indexof">&#x5176;&#x63CF;&#x8FF0;</a>&#x3002;</p>
 <p><strong>IE 9+ &#x652F;&#x6301;</strong></p>
 <h4 id="&#x904D;&#x5386;">&#x904D;&#x5386;</h4>
-<ul>
-<li>filter</li>
-<li>some</li>
-<li>every</li>
-<li>map</li>
-<li>forEach</li>
-</ul>
-<p>&#x4E0A;&#x9762;&#x7F57;&#x5217;&#x4E86;&#x4E00;&#x4E9B;&#x6570;&#x7EC4;&#x4E2D;&#x548C;&#x904D;&#x5386;&#x76F8;&#x5173;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5404;&#x6709;&#x5404;&#x7684;&#x6761;&#x4EF6;&#x548C;&#x5E94;&#x7528;&#x573A;&#x666F;&#x3002;
-&#x4E0D;&#x8FC7;&#x5BF9;&#x4E8E;0&#x57FA;&#x7840;&#x7684;&#x540C;&#x5B66;&#x8FD8;&#x662F;&#x63A8;&#x8350;&#x5927;&#x5BB6;&#x81EA;&#x5DF1;&#x6765;&#x904D;&#x5386;&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x7EC3;&#x4E60;&#xFF0C;&#x719F;&#x7EC3;&#x4E86;&#x4E4B;&#x540E;&#x518D;&#x8003;&#x8651;&#x770B;&#x770B;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x3002;
-&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x76EE;&#x524D;&#x5C31;&#x4E0D;&#x505A;&#x8FC7;&#x591A;&#x7684;&#x8BB2;&#x89E3;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x8FDB;&#x9636;&#x73ED;&#x4E0A;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x8BB2;&#x89E3;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x5C5E;&#x4E8E; ES5&#xFF0C;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x5373; IE 9+ &#x5F00;&#x59CB;&#x652F;&#x6301;&#x3002;</p>
+<h5 id="foreach">forEach</h5>
+<pre><code class="lang-js">arr.forEach(callback[, thisArg])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x5373;&#x5C06;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7ED9;&#x63D0;&#x4F9B;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;
+&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x6709; 3 &#x4E2A;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x503C;&#x3001;&#x4E0B;&#x6807;&#x3001;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x9009;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6307;&#x5B9A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x7684; <code>this</code> &#x503C;&#x3002;</p>
+<p><code>forEach</code> &#x65B9;&#x6CD5;&#x904D;&#x5386;&#x6570;&#x7EC4;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x4E0D;&#x8FC7;&#x7F3A;&#x70B9;&#x5728;&#x4E8E;&#x4E0D;&#x80FD;&#x4E3B;&#x52A8;&#x505C;&#x6B62;&#x5FAA;&#x73AF;&#xFF0C;&#x5373;&#x4E0D;&#x80FD;&#x50CF; <code>for</code> &#x4E4B;&#x7C7B;&#x7684;&#x4FBF;&#x5229;&#x65B9;&#x5F0F;&#x4E00;&#x6837;&#x901A;&#x8FC7; <code>break</code> &#x6765;&#x63D0;&#x524D;&#x7ED3;&#x675F;&#x904D;&#x5386;&#x3002;</p>
+<pre><code class="lang-js">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, idx</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Array[&apos;</span> + idx + <span class="hljs-string">&apos;] = &apos;</span> + val);
+});
+<span class="hljs-comment">/*
+    Array[0] = 1
+    Array[1] = 2
+    Array[2] = 3
+*/</span>
+</code></pre>
+<h5 id="map">map</h5>
+<pre><code class="lang-js">arr.map(callback[, thisArg])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x548C; <code>forEach</code> &#x7684;&#x53C2;&#x6570;&#x542B;&#x4E49;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;&#x529F;&#x80FD;&#x4E0A;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E; <code>map</code> &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x4E3A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> res = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">return</span> val * val;
+});
+<span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">// [1, 4, 9]</span>
+</code></pre>
+<h5 id="filter">filter</h5>
+<pre><code class="lang-js">arr.filter(callback[, thisArg])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x548C; <code>map</code> &#x7684;&#x53C2;&#x6570;&#x542B;&#x4E49;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;&#x529F;&#x80FD;&#x4E0A;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x7EC4;&#x4ECD;&#x65E7;&#x662F;&#x7531;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7EC4;&#x6210;&#xFF0C;&#x4E0D;&#x8FC7;&#x6839;&#x636E;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x662F;&#x5426;&#x4E3A;&#x771F;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x52A0;&#x5165;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x7EC4;&#x4E2D;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> res = [-<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, -<span class="hljs-number">100</span>, <span class="hljs-number">101</span>].filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">return</span> val &gt;= <span class="hljs-number">0</span>;
+});
+<span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">// [10, 101]</span>
+</code></pre>
+<h5 id="every">every</h5>
+<pre><code class="lang-js">arr.every(callback[, thisArg])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x548C; <code>filter</code> &#x7684;&#x53C2;&#x6570;&#x542B;&#x4E49;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;&#x529F;&#x80FD;&#x4E0A;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E; <code>every</code> &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x6BCF;&#x4E00;&#x4E2A;&#x90FD;&#x901A;&#x8FC7;&#x4E86;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x68C0;&#x6D4B;&#xFF08;&#x5373;&#x8FD4;&#x56DE; <code>true</code>&#xFF09;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isPositiveNumber</span>(<span class="hljs-params">n</span>) </span>{
+    <span class="hljs-keyword">return</span> n &gt; <span class="hljs-number">0</span>;
+}
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>].every(isPositiveNumber); <span class="hljs-comment">// true</span>
+[-<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>].every(isPositiveNumber); <span class="hljs-comment">// false</span>
+</code></pre>
+<h5 id="some">some</h5>
+<pre><code class="lang-js">arr.some(callback[, thisArg])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x548C; <code>every</code> &#x7684;&#x53C2;&#x6570;&#x542B;&#x4E49;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;&#x529F;&#x80FD;&#x4E0A;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E; &#xFF0C;&#x53EA;&#x8981;&#x6570;&#x7EC4;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x901A;&#x8FC7;&#x4E86;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x68C0;&#x6D4B;&#xFF08;&#x5373;&#x8FD4;&#x56DE; <code>true</code>&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x4FBF;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isPositiveNumber</span>(<span class="hljs-params">n</span>) </span>{
+    <span class="hljs-keyword">return</span> n &gt; <span class="hljs-number">0</span>;
+}
+[<span class="hljs-number">1</span>, -<span class="hljs-number">2</span>, -<span class="hljs-number">3</span>].some(isPositiveNumber); <span class="hljs-comment">// true</span>
+[-<span class="hljs-number">1</span>, -<span class="hljs-number">2</span>, -<span class="hljs-number">3</span>].some(isPositiveNumber); <span class="hljs-comment">// false</span>
+</code></pre>
+<h5 id="reduce">reduce</h5>
+<pre><code class="lang-js">arr.reduce(callback[, initialValue])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x6309;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x5BF9;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x67D0;&#x79CD;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x7D2F;&#x8BA1;&#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#xFF0C;&#x5373;&#x524D;&#x4E00;&#x6B21;&#x7684;&#x8FD0;&#x7B97;&#x7ED3;&#x679C;&#x4F1A;&#x88AB;&#x5E26;&#x5165;&#x4E0B;&#x4E00;&#x6B21;&#x8FD0;&#x7B97;&#x3002;
+&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x6709; 4 &#x4E2A;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x4E0A;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x7ED3;&#x679C;&#x3001;&#x5F53;&#x524D;&#x7684;&#x5143;&#x7D20;&#x503C;&#x3001;&#x5F53;&#x524D;&#x7684;&#x4E0B;&#x6807;&#x548C;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x9009;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6307;&#x5B9A;&#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x521D;&#x59CB;&#x8BA1;&#x7B97;&#x503C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> res = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>].reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">previousValue, currentValue, currentIndex, array</span>) </span>{
+  <span class="hljs-keyword">return</span> previousValue + currentValue;
+}, <span class="hljs-number">10</span>);
+<span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">// 20</span>
+</code></pre>
+<h5 id="reduceright">reduceRight</h5>
+<pre><code class="lang-js">arr.reduceRight(callback[, initialValue])
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x548C; <code>reduce</code> &#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x904D;&#x5386;&#x987A;&#x5E8F;&#x4E0D;&#x540C;&#xFF0C;&#x5373;&#x4ECE;&#x540E;&#x5411;&#x524D;&#x904D;&#x5386;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x7528;&#x6CD5;&#x548C; <code>reduce</code> &#x65E0;&#x533A;&#x522B;&#x3002;</p>
 <h3 id="&#x5C0F;&#x7EC3;&#x4E60;">&#x5C0F;&#x7EC3;&#x4E60;</h3>
 <ol>
 <li>&#x5C06;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x6309;&#x4E00;&#x5B9A;&#x89C4;&#x5219;&#x6392;&#x5E8F;</li>
@@ -1222,13 +1289,9 @@ console.log(arr); // [4, 2, 1, -1]
     <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"baidu":{"token":"d42134efe87bc063bacebecb25df3b7d"},"fontSettings":{"theme":"white","family":"sans","size":2},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"baidu":{"token":"d42134efe87bc063bacebecb25df3b7d"},"fontSettings":{"theme":"white","family":"sans","size":2},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

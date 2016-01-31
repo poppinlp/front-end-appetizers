@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 4"
         data-filepath="posts/lesson-8.md"
         data-basepath=".."
-        data-revision="Sun Jan 31 2016 10:43:32 GMT+0800 (中国标准时间)"
+        data-revision="Sun Jan 31 2016 20:28:42 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -765,8 +765,8 @@
 }
 </code></pre>
 <h3 id="&#x6570;&#x5B66;&#x51FD;&#x6570;">&#x6570;&#x5B66;&#x51FD;&#x6570;</h3>
-<p><code>Math</code> &#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x548C;&#x6570;&#x5B66;&#x76F8;&#x5173;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5982; <code>Math.PI</code>, <code>Math.E</code> &#x7B49;&#x3002;
-&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x5C06;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x6570;&#x5B66;&#x51FD;&#x6570;&#x3002;</p>
+<p><code>Math</code> &#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x548C;&#x6570;&#x5B66;&#x76F8;&#x5173;&#x7684;&#x5E38;&#x91CF;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5982; <code>Math.PI</code>, <code>Math.E</code> &#x7B49;&#x3002;
+&#x8FD9;&#x91CC;&#x53D6;&#x4E00;&#x90E8;&#x5206;&#x505A;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x51FD;&#x6570;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x9605;&#x3002;</p>
 <h4 id="random">random</h4>
 <pre><code class="lang-javascript"><span class="hljs-built_in">Math</span>.random();
 </code></pre>
@@ -817,6 +817,12 @@
 <p>&#x8FD4;&#x56DE;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x8005;&#x3002;</p>
 <pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Math</span>.min(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>)); <span class="hljs-comment">// -1</span>
 </code></pre>
+<h4 id="pow">pow</h4>
+<pre><code class="lang-js"><span class="hljs-built_in">Math</span>.pow(base, exponent)
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x7684; N &#x6B21;&#x65B9;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>)); <span class="hljs-comment">// 1024</span>
+</code></pre>
 <h3 id="&#x5C0F;&#x7EC3;&#x4E60;">&#x5C0F;&#x7EC3;&#x4E60;</h3>
 <ol>
 <li>&#x5C01;&#x88C5;&#x51FD;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5904;&#x4E8E;&#x8FD9;&#x4E24;&#x4E2A;&#x6570;&#x5B57;&#x4E4B;&#x95F4;&#x7684;&#x968F;&#x673A;&#x6570;&#xFF0C;[num1, num2)&#x3002;</li>
@@ -829,7 +835,7 @@
 <p>JSON &#x5373; JavaScript &#x5BF9;&#x8C61;&#x8868;&#x793A;&#x6CD5;&#xFF08;JavaScript Object Notation&#xFF09;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7B80;&#x6D01;&#x7684;&#x50A8;&#x5B58;&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#x3002;
 &#x7531;&#x4E8E;&#x5B83;&#x7684;&#x7ED3;&#x6784;&#x5F88;&#x50CF; JS &#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x9002;&#x5408; JS &#x6765;&#x4F7F;&#x7528;&#x3002;&#x7C7B;&#x4F3C;&#x7684;&#x8FD8;&#x6709; yaml &#x548C; xml &#x7B49;&#x7B49;&#x3002;
 &#x5173;&#x4E8E; JSON &#x7684;&#x5386;&#x53F2;&#x7B49;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x53EF;&#x770B;<a href="http://en.wikipedia.org/wiki/JSON" target="_blank">&#x8FD9;&#x7BC7;wiki</a>&#x3002;</p>
-<p>&#x4ECE; ECMAScript 5 &#x5F00;&#x59CB;&#xFF0C;&#x652F;&#x6301;&#x539F;&#x751F;&#x7684; JSON &#x5BF9;&#x8C61;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;IE 8+&#x652F;&#x6301;&#x3002;</p>
+<p>&#x4ECE; ECMAScript 5 &#x5F00;&#x59CB;&#xFF0C;&#x652F;&#x6301;&#x539F;&#x751F;&#x7684; JSON &#x5BF9;&#x8C61;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;IE 8+ &#x652F;&#x6301;&#x3002;</p>
 <h4 id="jsonparse">JSON.parse</h4>
 <pre><code class="lang-javascript"><span class="hljs-built_in">JSON</span>.parse(text[, reviver]);
 </code></pre>
@@ -997,13 +1003,9 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
     <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"baidu":{"token":"d42134efe87bc063bacebecb25df3b7d"},"fontSettings":{"theme":"white","family":"sans","size":2},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"baidu":{"token":"d42134efe87bc063bacebecb25df3b7d"},"fontSettings":{"theme":"white","family":"sans","size":2},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

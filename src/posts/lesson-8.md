@@ -137,8 +137,8 @@ function statistics(arr) {
 
 ### 数学函数
 
-`Math` 对象包含了很多和数学相关的属性和方法，如 `Math.PI`, `Math.E` 等。
-这一部分将介绍一些常用的数学函数。
+`Math` 对象包含了很多和数学相关的常量和方法，如 `Math.PI`, `Math.E` 等。
+这里取一部分做简单介绍，其他的函数有兴趣的同学可以自行查阅。
 
 #### random
 
@@ -229,6 +229,18 @@ Math.min([value1[,value2, ...]])
 console.log(Math.min(1, 2, 3, -1)); // -1
 ```
 
+#### pow
+
+```js
+Math.pow(base, exponent)
+```
+
+返回一个数字的 N 次方。
+
+```js
+console.log(Math.pow(2, 10)); // 1024
+```
+
 ### 小练习
 
 1. 封装函数，参数为两个数组，返回一个处于这两个数字之间的随机数，[num1, num2)。
@@ -245,7 +257,7 @@ JSON 即 JavaScript 对象表示法（JavaScript Object Notation），是一种�
 由于它的结构很像 JS 的对象，所以很适合 JS 来使用。类似的还有 yaml 和 xml 等等。
 关于 JSON 的历史等详细介绍可看[这篇wiki](http://en.wikipedia.org/wiki/JSON)。
 
-从 ECMAScript 5 开始，支持原生的 JSON 对象了，下面是两个主要的操作方法。IE 8+支持。
+从 ECMAScript 5 开始，支持原生的 JSON 对象了，下面是两个主要的操作方法。IE 8+ 支持。
 
 #### JSON.parse
 

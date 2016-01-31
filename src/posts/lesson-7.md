@@ -302,6 +302,18 @@ typeof str1; // string
 typeof str2; // object
 ```
 
+但是需要注意的是，对于原始类型取属性和调用方法的这个过程 JS 引擎做了很多优化，性能会比创建对象并调用方法好很多。
+
+### 数字常用方法
+
+数字上比较常用的方法是 `toFixed`，作用为将数字取到小数点后 N 位，最后一位采用四舍五入，返回一个字符串。例如：
+
+```js
+(123).toFixed(3); // 123.000
+(123.123123).toFixed(3); // 123.123
+(123.123923).toFixed(3); // 123.124
+```
+
 ### 字符串常用方法
 
 #### 内容获取
@@ -444,7 +456,7 @@ str.toUpperCase();
 str.toLowerCase();
 ```
 
-2个方法都不会修改原变量，而是返回新的字符串。
+2 个方法都不会修改原变量，而是返回新的字符串。
 
 ```javascript
 var str = 'hello WORLD';
@@ -570,7 +582,7 @@ __IE 9+ 支持__
 1. 简单的词频统计
 2. 实现 `replace` 方法
 
-### 数组常用方法
+### 数组常用属性和方法
 
 #### length
 
@@ -749,15 +761,117 @@ __IE 9+ 支持__
 
 #### 遍历
 
-- filter
-- some
-- every
-- map
-- forEach
+下面这些方法都是属于 ES5，现代浏览器即 IE 9+ 开始支持。
 
-上面罗列了一些数组中和遍历相关的方法，各有各的条件和应用场景。
-不过对于0基础的同学还是推荐大家自己来遍历作为一种练习，熟练了之后再考虑看看这些方法。
-所以我们目前就不做过多的讲解，之后的进阶班上我们再来讲解。
+##### forEach
+
+```js
+arr.forEach(callback[, thisArg])
+```
+
+这个方法主要用来遍历数组，即将数组中的每一个元素作为参数给提供的回调函数。
+第一个参数为一个回调函数。回调函数的参数有 3 个，分别是数组元素值、下标、原始数组。
+第二个参数可选，作用是指定回调函数中的 `this` 值。
+
+`forEach` 方法遍历数组很方便，不过缺点在于不能主动停止循环，即不能像 `for` 之类的便利方式一样通过 `break` 来提前结束遍历。
+
+```js
+[1, 2, 3].forEach(function (val, idx) {
+	console.log('Array[' + idx + '] = ' + val);
+});
+/*
+	Array[0] = 1
+	Array[1] = 2
+	Array[2] = 3
+*/
+```
+
+##### map
+
+```js
+arr.map(callback[, thisArg])
+```
+
+这个函数和 `forEach` 的参数含义一模一样，功能上的区别在于 `map` 会返回一个数组，数组元素为回调函数的返回值。例如：
+
+```js
+var res = [1, 2, 3].map(function (val) {
+	return val * val;
+});
+console.log(res); // [1, 4, 9]
+```
+
+##### filter
+
+```js
+arr.filter(callback[, thisArg])
+```
+
+这个函数和 `map` 的参数含义一模一样，功能上的区别在于返回的数组仍旧是由原始数据组成，不过根据回调函数的返回结果是否为真来决定是否加入返回的数组中。例如：
+
+```js
+var res = [-1, 10, -100, 101].filter(function (val) {
+	return val >= 0;
+});
+console.log(res); // [10, 101]
+```
+
+##### every
+
+```js
+arr.every(callback[, thisArg])
+```
+
+这个函数和 `filter` 的参数含义一模一样，功能上的区别在于 `every` 返回一个布尔值，表示数组中的元素是否每一个都通过了回调函数的检测（即返回 `true`）。例如：
+
+```js
+function isPositiveNumber(n) {
+	return n > 0;
+}
+[1, 2, 3, 4].every(isPositiveNumber); // true
+[-1, 2, 3, 4].every(isPositiveNumber); // false
+```
+
+##### some
+
+```js
+arr.some(callback[, thisArg])
+```
+
+这个函数和 `every` 的参数含义一模一样，功能上的区别在于 ，只要数组中有一个元素是通过了回调函数的检测（即返回 `true`），那么便返回 `true`，否则返回 `false`。例如：
+
+```js
+function isPositiveNumber(n) {
+	return n > 0;
+}
+[1, -2, -3].some(isPositiveNumber); // true
+[-1, -2, -3].some(isPositiveNumber); // false
+```
+
+##### reduce
+
+```js
+arr.reduce(callback[, initialValue])
+```
+
+这个方法主要用来按顺序依次对数组中的元素进行某种操作，并且累计这种操作结果，即前一次的运算结果会被带入下一次运算。
+第一个参数为一个回调函数。回调函数的参数有 4 个，分别是上一次调用的结果、当前的元素值、当前的下标和原始数组。
+第二个参数可选，作用是指定第一次运行时的初始计算值。
+
+```js
+var res = [0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, currentIndex, array) {
+  return previousValue + currentValue;
+}, 10);
+console.log(res); // 20
+```
+
+##### reduceRight
+
+```js
+arr.reduceRight(callback[, initialValue])
+```
+
+这个方法和 `reduce` 的区别在于遍历顺序不同，即从后向前遍历，其他的用法和 `reduce` 无区别。
 
 ### 小练习
 
