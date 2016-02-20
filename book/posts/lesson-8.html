@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 4"
         data-filepath="posts/lesson-8.md"
         data-basepath=".."
-        data-revision="Sun Jan 31 2016 20:28:42 GMT+0800 (中国标准时间)"
+        data-revision="Sat Feb 20 2016 20:41:55 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -707,8 +707,6 @@
 }
 </code></pre>
 <h2 id="javascript-&#x57FA;&#x7840;-part-4">JavaScript &#x57FA;&#x7840; Part 4</h2>
-<h3 id="&#x4E0A;&#x8282;&#x8BFE;&#x672A;&#x8BB2;&#x5B8C;&#x7684;&#x5E38;&#x7528;&#x65B9;&#x6CD5;">&#x4E0A;&#x8282;&#x8BFE;&#x672A;&#x8BB2;&#x5B8C;&#x7684;&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
-<p>&#x8BE6;&#x89C1;&#x4E0A;&#x8282;&#x8BFE;&#x7684;&#x8D44;&#x6599;&#x3002;</p>
 <h3 id="&#x5C0F;&#x7EC3;&#x4E60;">&#x5C0F;&#x7EC3;&#x4E60;</h3>
 <ol>
 <li>&#x5C06;&#x4E00;&#x4E2A;&#x65E5;&#x671F;&#x5B57;&#x7B26;&#x4E32;&#x5982; &apos;2014-12-12&apos; &#x8F6C;&#x5316;&#x4E3A;&#x4E2D;&#x6587; &apos;&#x4E8C;&#x96F6;&#x4E00;&#x56DB;&#x5E74;&#x4E00;&#x4E8C;&#x6708;&#x4E00;&#x4E8C;&#x65E5;&apos;&#x3002;</li>
@@ -765,8 +763,18 @@
 }
 </code></pre>
 <h3 id="&#x6570;&#x5B66;&#x51FD;&#x6570;">&#x6570;&#x5B66;&#x51FD;&#x6570;</h3>
-<p><code>Math</code> &#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x548C;&#x6570;&#x5B66;&#x76F8;&#x5173;&#x7684;&#x5E38;&#x91CF;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5982; <code>Math.PI</code>, <code>Math.E</code> &#x7B49;&#x3002;
-&#x8FD9;&#x91CC;&#x53D6;&#x4E00;&#x90E8;&#x5206;&#x505A;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x51FD;&#x6570;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x9605;&#x3002;</p>
+<p><code>Math</code> &#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x548C;&#x6570;&#x5B66;&#x76F8;&#x5173;&#x7684;&#x5E38;&#x91CF;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x53D6;&#x4E00;&#x90E8;&#x5206;&#x505A;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x51FD;&#x6570;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x67E5;&#x9605;&#x3002;</p>
+<h4 id="&#x5E38;&#x91CF;">&#x5E38;&#x91CF;</h4>
+<ul>
+<li>Math.E</li>
+<li>Math.LN2</li>
+<li>Math.LN10</li>
+<li>Math.LOG2E</li>
+<li>Math.LOG10E</li>
+<li>Math.PI</li>
+<li>Math.SQRT1_2</li>
+<li>Math.SQRT2</li>
+</ul>
 <h4 id="random">random</h4>
 <pre><code class="lang-javascript"><span class="hljs-built_in">Math</span>.random();
 </code></pre>
@@ -822,6 +830,32 @@
 </code></pre>
 <p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x7684; N &#x6B21;&#x65B9;&#x3002;</p>
 <pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>)); <span class="hljs-comment">// 1024</span>
+</code></pre>
+<h4 id="abs">abs</h4>
+<pre><code class="lang-js"><span class="hljs-built_in">Math</span>.abs(x)
+</code></pre>
+<p><code>abs</code> &#x65B9;&#x6CD5;&#x5C1D;&#x8BD5;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5176;&#x7EDD;&#x5BF9;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">Math</span>.abs(<span class="hljs-string">&apos;-1&apos;</span>);     <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">Math</span>.abs(-<span class="hljs-number">2</span>);       <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">Math</span>.abs(<span class="hljs-literal">null</span>);     <span class="hljs-comment">// 0</span>
+<span class="hljs-built_in">Math</span>.abs(<span class="hljs-string">&apos;&apos;</span>);       <span class="hljs-comment">// 0</span>
+<span class="hljs-built_in">Math</span>.abs([]);       <span class="hljs-comment">// 0</span>
+<span class="hljs-built_in">Math</span>.abs([<span class="hljs-number">2</span>]);      <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">Math</span>.abs([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]);    <span class="hljs-comment">// NaN</span>
+<span class="hljs-built_in">Math</span>.abs({});       <span class="hljs-comment">// NaN</span>
+<span class="hljs-built_in">Math</span>.abs(<span class="hljs-string">&apos;string&apos;</span>); <span class="hljs-comment">// NaN</span>
+<span class="hljs-built_in">Math</span>.abs();         <span class="hljs-comment">// NaN</span>
+</code></pre>
+<h4 id="sqrt">sqrt</h4>
+<pre><code class="lang-js"><span class="hljs-built_in">Math</span>.sqrt(x)
+</code></pre>
+<p><code>sqrt</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x5E73;&#x65B9;&#x6839;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-number">9</span>); <span class="hljs-comment">// 3</span>
+<span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-number">2</span>); <span class="hljs-comment">// 1.414213562373095</span>
+
+<span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-number">1</span>);  <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-number">0</span>);  <span class="hljs-comment">// 0</span>
+<span class="hljs-built_in">Math</span>.sqrt(-<span class="hljs-number">1</span>); <span class="hljs-comment">// NaN</span>
 </code></pre>
 <h3 id="&#x5C0F;&#x7EC3;&#x4E60;">&#x5C0F;&#x7EC3;&#x4E60;</h3>
 <ol>

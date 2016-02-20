@@ -584,7 +584,35 @@ __IE 9+ 支持__
 
 ### 数组常用属性和方法
 
-#### length
+我们之前讲过 Array 这个结构，作为 JS 内置的一个对象，它也包含了一些实例方法和静态方法。
+
+#### 静态方法
+
+##### isArray
+
+```js
+Array.isArray(obj)
+```
+
+我们之前讲过 `typeof` 操作符，它的作用是用来获取数据的类型。但当时提过一个例子，如果我们对一个数组和一个对象分别使用 `typeof`，获取到的结果却是一样的。那么我们如何判断一个对象就是是数组还是别的呢？这里的 `isArray` 这个静态方法就是干这个的。看个例子：
+
+```js
+Array.isArray([]); // true
+Array.isArray(new Array()); // true
+Array.isArray(); // false
+Array.isArray({}); // false
+Array.isArray(null); // false
+Array.isArray(undefined); // false
+Array.isArray(17); // false
+Array.isArray('Array'); // false
+Array.isArray(true); // false
+```
+
+__IE 9+ 支持__
+
+#### 实例方法和属性
+
+##### length
 
 `length` 属性可以获取数组的长度。
 
@@ -604,7 +632,7 @@ arr.length = 2;
 console.log(arr); // [1, 2]
 ```
 
-#### join
+##### join
 
 ```javascript
 arr.join([separator]);
@@ -617,9 +645,7 @@ var arr = ['test', 1, 2];
 console.log(arr.join('+SEP+')); // test+SEP+1+SEP+2
 ```
 
-__`concat`,`join`和`+=`这三种拼接方式中，`+=`的性能最好__
-
-#### 队列和栈操作
+__`concat` , `join` 和 `+=` 这三种拼接方式中，`+=` 的性能最好__
 
 ##### push
 
@@ -677,7 +703,17 @@ console.log(arr.unshift('test', -1)); // 5
 console.log(arr); // ['test', -1, 1, 2, 3]
 ```
 
-#### 排序
+##### concat
+
+```js
+var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+```
+
+`concat` 方法用于拼接数组，即将多个值或数组按顺序合并成一个新数组并返回。例如：
+
+```js
+['a', 'b', 'c'].concat([1, 2, 3]); // Result: ['a', 'b', 'c', 1, 2, 3]
+```
 
 ##### reverse
 
@@ -737,12 +773,15 @@ arr.splice(start, deleteCount[, item1[, item2[, ...]]])
 
 ```javascript
 var arr = [1, 2, 3];
+
 // delete element demo
 console.log(arr.splice(1, 1)); // [2]
 console.log(arr); // [1, 3]
+
 // add element demo
 console.log(arr.splice(1, 0, 2)); // []
 console.log(arr); // [1, 2, 3]
+
 // replace element demo
 console.log(arr.splice(1, 1, 'test')); // [2]
 console.log(arr); // [1, 'test', 3]

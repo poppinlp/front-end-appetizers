@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 3"
         data-filepath="posts/lesson-7.md"
         data-basepath=".."
-        data-revision="Sun Jan 31 2016 20:28:42 GMT+0800 (中国标准时间)"
+        data-revision="Sat Feb 20 2016 20:41:55 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -1048,7 +1048,25 @@ str.toLowerCase();
 <li>&#x5B9E;&#x73B0; <code>replace</code> &#x65B9;&#x6CD5;</li>
 </ol>
 <h3 id="&#x6570;&#x7EC4;&#x5E38;&#x7528;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;">&#x6570;&#x7EC4;&#x5E38;&#x7528;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</h3>
-<h4 id="length">length</h4>
+<p>&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x8BB2;&#x8FC7; Array &#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#xFF0C;&#x4F5C;&#x4E3A; JS &#x5185;&#x7F6E;&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x4E5F;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E9B;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x548C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="&#x9759;&#x6001;&#x65B9;&#x6CD5;">&#x9759;&#x6001;&#x65B9;&#x6CD5;</h4>
+<h5 id="isarray">isArray</h5>
+<pre><code class="lang-js"><span class="hljs-built_in">Array</span>.isArray(obj)
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x8BB2;&#x8FC7; <code>typeof</code> &#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x4F46;&#x5F53;&#x65F6;&#x63D0;&#x8FC7;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5BF9;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x548C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5206;&#x522B;&#x4F7F;&#x7528; <code>typeof</code>&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x5374;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x662F;&#x6570;&#x7EC4;&#x8FD8;&#x662F;&#x522B;&#x7684;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x7684; <code>isArray</code> &#x8FD9;&#x4E2A;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5E72;&#x8FD9;&#x4E2A;&#x7684;&#x3002;&#x770B;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">Array</span>.isArray([]); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">Array</span>.isArray(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>()); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">Array</span>.isArray(); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Array</span>.isArray({}); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Array</span>.isArray(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Array</span>.isArray(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Array</span>.isArray(<span class="hljs-number">17</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Array</span>.isArray(<span class="hljs-string">&apos;Array&apos;</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">Array</span>.isArray(<span class="hljs-literal">true</span>); <span class="hljs-comment">// false</span>
+</code></pre>
+<p><strong>IE 9+ &#x652F;&#x6301;</strong></p>
+<h4 id="&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;">&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;</h4>
+<h5 id="length">length</h5>
 <p><code>length</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x3002;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">&apos;test&apos;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
 <span class="hljs-built_in">console</span>.log(arr.length); <span class="hljs-comment">// 3</span>
@@ -1061,15 +1079,14 @@ arr.length = <span class="hljs-number">10</span>;
 arr.length = <span class="hljs-number">2</span>;
 <span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// [1, 2]</span>
 </code></pre>
-<h4 id="join">join</h4>
+<h5 id="join">join</h5>
 <pre><code class="lang-javascript">arr.join([separator]);
 </code></pre>
 <p><code>join</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x6570;&#x7EC4;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x8FDE;&#x63A5;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x53EF;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x8FDE;&#x63A5;&#x65F6;&#x7684;&#x5206;&#x9694;&#x7B26;&#x3002;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">&apos;test&apos;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
 <span class="hljs-built_in">console</span>.log(arr.join(<span class="hljs-string">&apos;+SEP+&apos;</span>)); <span class="hljs-comment">// test+SEP+1+SEP+2</span>
 </code></pre>
-<p><strong><code>concat</code>,<code>join</code>&#x548C;<code>+=</code>&#x8FD9;&#x4E09;&#x79CD;&#x62FC;&#x63A5;&#x65B9;&#x5F0F;&#x4E2D;&#xFF0C;<code>+=</code>&#x7684;&#x6027;&#x80FD;&#x6700;&#x597D;</strong></p>
-<h4 id="&#x961F;&#x5217;&#x548C;&#x6808;&#x64CD;&#x4F5C;">&#x961F;&#x5217;&#x548C;&#x6808;&#x64CD;&#x4F5C;</h4>
+<p><strong><code>concat</code> , <code>join</code> &#x548C; <code>+=</code> &#x8FD9;&#x4E09;&#x79CD;&#x62FC;&#x63A5;&#x65B9;&#x5F0F;&#x4E2D;&#xFF0C;<code>+=</code> &#x7684;&#x6027;&#x80FD;&#x6700;&#x597D;</strong></p>
 <h5 id="push">push</h5>
 <pre><code class="lang-javascript">arr.push(element1, ..., elementN);
 </code></pre>
@@ -1102,7 +1119,12 @@ arr.length = <span class="hljs-number">2</span>;
 <span class="hljs-built_in">console</span>.log(arr.unshift(<span class="hljs-string">&apos;test&apos;</span>, -<span class="hljs-number">1</span>)); <span class="hljs-comment">// 5</span>
 <span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// [&apos;test&apos;, -1, 1, 2, 3]</span>
 </code></pre>
-<h4 id="&#x6392;&#x5E8F;">&#x6392;&#x5E8F;</h4>
+<h5 id="concat">concat</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+</code></pre>
+<p><code>concat</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x62FC;&#x63A5;&#x6570;&#x7EC4;&#xFF0C;&#x5373;&#x5C06;&#x591A;&#x4E2A;&#x503C;&#x6216;&#x6570;&#x7EC4;&#x6309;&#x987A;&#x5E8F;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;&#x5E76;&#x8FD4;&#x56DE;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">[<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>].concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// Result: [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, 1, 2, 3]</span>
+</code></pre>
 <h5 id="reverse">reverse</h5>
 <pre><code class="lang-javascript">arr.reverse();
 </code></pre>
@@ -1140,12 +1162,15 @@ console.log(arr); // [4, 2, 1, -1]
 <li>&#x66FF;&#x6362;&#x5143;&#x7D20;</li>
 </ul>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
 <span class="hljs-comment">// delete element demo</span>
 <span class="hljs-built_in">console</span>.log(arr.splice(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)); <span class="hljs-comment">// [2]</span>
 <span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// [1, 3]</span>
+
 <span class="hljs-comment">// add element demo</span>
 <span class="hljs-built_in">console</span>.log(arr.splice(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>)); <span class="hljs-comment">// []</span>
 <span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// [1, 2, 3]</span>
+
 <span class="hljs-comment">// replace element demo</span>
 <span class="hljs-built_in">console</span>.log(arr.splice(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&apos;test&apos;</span>)); <span class="hljs-comment">// [2]</span>
 <span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// [1, &apos;test&apos;, 3]</span>

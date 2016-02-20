@@ -73,10 +73,6 @@ function indexOf(src, target) {
 
 ## JavaScript 基础 Part 4
 
-### 上节课未讲完的常用方法
-
-详见上节课的资料。
-
 ### 小练习
 
 1. 将一个日期字符串如 '2014-12-12' 转化为中文 '二零一四年一二月一二日'。
@@ -137,8 +133,18 @@ function statistics(arr) {
 
 ### 数学函数
 
-`Math` 对象包含了很多和数学相关的常量和方法，如 `Math.PI`, `Math.E` 等。
-这里取一部分做简单介绍，其他的函数有兴趣的同学可以自行查阅。
+`Math` 对象包含了很多和数学相关的常量和方法，这里取一部分做简单介绍，其他的函数有兴趣的同学可以自行查阅。
+
+#### 常量
+
+- Math.E
+- Math.LN2
+- Math.LN10
+- Math.LOG2E
+- Math.LOG10E
+- Math.PI
+- Math.SQRT1_2
+- Math.SQRT2
 
 #### random
 
@@ -239,6 +245,44 @@ Math.pow(base, exponent)
 
 ```js
 console.log(Math.pow(2, 10)); // 1024
+```
+
+#### abs
+
+```js
+Math.abs(x)
+```
+
+`abs` 方法尝试将传入的参数转换为数字，并返回其绝对值。例如：
+
+```js
+Math.abs('-1');     // 1
+Math.abs(-2);       // 2
+Math.abs(null);     // 0
+Math.abs('');       // 0
+Math.abs([]);       // 0
+Math.abs([2]);      // 2
+Math.abs([1,2]);    // NaN
+Math.abs({});       // NaN
+Math.abs('string'); // NaN
+Math.abs();         // NaN
+```
+
+#### sqrt
+
+```js
+Math.sqrt(x)
+```
+
+`sqrt` 方法用于获取一个数的平方根。例如：
+
+```js
+Math.sqrt(9); // 3
+Math.sqrt(2); // 1.414213562373095
+
+Math.sqrt(1);  // 1
+Math.sqrt(0);  // 0
+Math.sqrt(-1); // NaN
 ```
 
 ### 小练习
