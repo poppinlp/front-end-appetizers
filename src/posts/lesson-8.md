@@ -295,6 +295,277 @@ function random(num1, num2) {
 }
 ```
 
+### 再谈 function
+
+我们之前的课程讲过函数的申明、调用、参数等内容，现在再聊聊关于函数的使用。
+
+#### 一个例子
+
+我们来解决一下这个问题：函数的参数为一个数字，函数要做的是当这个数字大于 10 的时候，把这个数除 2，直到它小于等于 10 后返回最终结果。
+
+一种常见的解决方案可能是这样：
+
+```js
+function f(n) {
+    while (n > 10) {
+        n /= 2;
+    }
+    return n;
+}
+```
+
+现在我们换一种思路来看这个问题，把这个问题进行一个拆解：
+
+1. 如果数字小于等于 10，直接返回结果
+2. 如果大于 10，除 2 后回到上一步，即返回用除 2 后的结果重复执行这个函数的值
+
+按照这个思路，我们来写一下代码：
+
+```js
+function f(n) {
+    if (n < 10) return n;
+    return f(n / 2);
+}
+```
+
+#### 函数的递归调用
+
+从上面的例子中我们可以发现，在某些情况下，函数内部再调用自己，可以使问题的求解变得简单、清晰，同时代码也更加简洁。
+
+这种在函数自身内部通过不断的调用自己，并修改条件已达到初始已知条件，再逐层反馈，得到问题最终解的方法，称为函数的递归调用。
+
+适用于递归的问题往往有这个特征，可以将问题重复的分解为同类型的子问题，并且这类子问题有已知的结束条件。
+例如我们上面的例子中，第一步即为问题的结束条件，第二步即为拆解子问题。
+
+![](http://edu.cnzz.cn/images/201302/20130221140110439.jpg)
+
+当然，我们上面的例子很简单，完全可以用循环来代替。不过有些场景，递归会显得非常方便。
+
+#### 斐波那契数列
+
+Fibonacci 数列是一个特殊数列，它的数学定义是：
+
+- F_0=0
+- F_1=1
+- F_n = F_{n-1} + F_{n-2}（n≧2）
+
+即前两个值为 0、1，之后的第 N 个值为第 N - 1 和第 N - 2 的值的和。
+那么，求斐波那契数列的第 N 个数的值，这个问题大家试着用递归来解决一下吧。
+
+```js
+function fib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+```
+
+#### fib 函数优化
+
+按照上面的思路，我们实现了 fib 方法，但大家可以试一下，如果我们把 N 变的比较大的时候，会产生什么效果。
+当然，结果就是，程序会卡死，例如 fib(1000)。那这是为什么呢？
+
+我们来仔细分析一下，这中间递归的过程中究竟发生了什么：
+
+- 当 n 为 2 时，我们会调用 2 次 fib
+- 当 n 为 3 时，我们会调用 2 + 1 次 fib
+- 当 n 为 4 时，我们会调用 (2 + 1) + 2 次 fib
+- 当 n 为 5 时，我们会调用 ((2 + 1) + 2) + (2 + 1) + 2 次 fib
+- e.t.c
+
+我们会发现，随着 N 增大，递归的调用次数会增大很多，因为我们会不断的递归计算下去，直到达到结束条件即递归到 0 或 1。
+看一下图即可发现，这中间其实存在着大量的重复计算，那么显而易见的优化点就是免去不必要的重复计算，即把已经计算过的结果缓存起来供后续计算使用，即不断的扩大结束条件使得递归更早的结束。
+
+```js
+var cache = [0, 1];
+
+function fib(n) {
+    if (cache[n]) {
+        return cache[n];
+    } else {
+        cache[n] = fib(n - 1) + fib(n - 2);
+        return cache[n];
+    }
+    /*
+    return (cache[n] = cache[n] !== undefined ? cache[n] : fib(n - 1) + fib(n - 2), cache[n]);
+    */
+}
+```
+
+现在再试试 fib(1000) 应该轻轻松松了吧 >.<
+
+这个例子主要是想说明，在我们执行一些程序的时候，有效的利用缓存可以很大的提高性能。具体缓存的应用场景，大家在以后的工作中可能经常会遇到。
+
+#### 汉诺塔问题
+
+![](http://pic002.cnblogs.com/images/2011/348708/2011111320150185.gif)
+
+汉诺塔游戏即在 3 个柱子上移动圆盘的游戏，要求有两个，大的原盘不能放在小的圆盘上面，一次只能移动一个圆盘，最终把 A 柱子上的圆盘移动到 C 柱子上。
+
+给大家几分钟时间思考，如何解决这个问题。
+
+- 把 N 个原盘从 A 借助 B 移动到 C
+- 把 N - 1 个圆盘从 A 借助 C 移动到 B
+- 把第 N 个圆盘从 A 移动到 C
+- 把 N - 1 个圆盘从 B 借助 A 移动到 C
+- e.t.c
+
+```js
+var a = 'A', b = 'B', c = 'C';
+
+function hanoi(n) {
+    if (n === 1) {
+        console.log(n + ': ' + a + '->' + c);
+    } else {
+        hanoi(n - 1, a, c, b);
+        console.log(n + ': ' + a + '->' + c);
+        hanoi(n - 1, b, a, c);
+    }
+}
+```
+
+#### 小练习
+
+尝试优化上面的汉诺塔问题解法的性能。
+
+### 简单算法介绍
+
+算法即问题的解决方案，通过一系列的操作最终得到问题的正确解。我们已经了解了 JS 的主要基础内容，下面简单的介绍几个算法，作为大家对于基础内容的练习。
+
+#### 插入排序
+
+![](http://img.my.csdn.net/uploads/201207/17/1342520948_8667.jpg)
+
+插入排序通过遍历数组，将当前的数字插入到一个适合它的新位置，从而得到有顺序的结果。
+对于遍历过程中的每一个数，通过和前面的数字的比较结果，不断的交换直到达到合适的位置结束，看起来就是每个值被插入到了合适的位置，所以称为插入排序。
+
+```js
+function insertionSort(arr) {
+    var i, j, target;
+
+    for (i = 1; i < arr.length; i++) {
+        target = arr[i];
+        for (j = i - 1; j >= 0; j--) {
+            if (target >= arr[j]) break;
+
+            arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = target;
+    }
+
+    return arr;
+}
+```
+
+#### 冒泡排序
+
+![](http://img.blog.csdn.net/20150311232353449)
+
+冒泡排序通过遍历数组，将其中的值依次与其后续的值进行比较，根据结果决定是否交换，从而得到有顺序的结果。
+对于遍历过程中的每一个数，由于是依次和后续的值进行比较，从而涌出一个极值，过程就像冒泡一样一个一个向上浮，所以称为冒泡排序。
+
+```js
+function bubbleSort(arr) {
+    var len = arr.length,
+        j, tmp;
+
+    while (len--) {
+        for (j = len - 1; j >= 0; j--) {
+            if (arr[j + 1] > arr[j]) {
+                tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+
+    return arr;
+}
+```
+
+#### 选择排序
+
+![](http://www.weixueyuan.net/uploads/allimg/121229/1-121229141516104.gif)
+
+选择排序通过遍历数组，每次选出当前的最大/最小值，然后并与最前面的未排序的值进行交换，从而得到一个有序的结果。
+数组整体分为两部分，前面是有序的，后面是无序的，每次遍历的结果即选择当前无序部分中最大/最小值，然后放入有序部分，所以称为选择排序。
+
+```js
+function selectionSort(arr) {
+    var i, j, tmp;
+
+    for (i = 0; i < arr.length - 1; i++) {
+        tmp = i;
+        for (j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[tmp]) {
+                tmp = j;
+            }
+        }
+
+        j = arr[tmp];
+        arr[tmp] = arr[i];
+        arr[i] = j;
+    }
+
+    return arr;
+}
+```
+
+#### 二分查找
+
+![](http://pic002.cnblogs.com/img/yc_sunniwell/201006/2010062716463366.png)
+
+二分查找通过将数组对半拆分，从而更快的定位到目标位置，减少查找次数。
+不过缺点在于，要求目前数组必须是有序的。
+
+```js
+function binarySearch(arr, target) {
+    var low = arguments[2] || 0,
+        high = arguments[3] || arr.length - 1,
+        mid = Math.floor((high + low) / 2);
+
+    if (high < low) return 'No such element';
+
+    switch (true) {
+        case arr[mid] === target:
+            return mid;
+        case arr[mid] < target:
+            return binarySearch(arr, target, mid + 1, high);
+        case arr[mid] > target:
+            return binarySearch(arr, target, low, mid - 1);
+    }
+}
+```
+
+#### 希尔排序
+
+![](http://images.devshed.com/ds/stories/2004-02-24/sort4.gif)
+
+希尔排序是直接插入排序的改进版，即通过增量将数组的内容进行分组，然后每组内部通过插入排序进行排序。
+这样逐渐将增量减小，最后一次增量为 1 时即完成排序。
+通常增量的初始值可以取数组长度的一般，每次缩小一半。
+
+```js
+function shellSort(arr) {
+    var gap = Math.floor((arguments[1] || arr.length) / 2),
+        i, j;
+
+    if (!gap) return arr;
+
+    for (i = 0; i < gap; i++) {
+        j = i;
+        while (j < arr.length) {
+
+        }
+    }
+}
+```
+
+#### 快速排序
+
+![](http://images.cnblogs.com/cnblogs_com/ruinet/quickSort.jpg)
+
+快速排序是一种性能比冒泡排序和插入排序要好一些的排序方法。
+
 ### JSON
 
 JSON 即 JavaScript 对象表示法（JavaScript Object Notation），是一种简洁的储存数据的格式。
@@ -429,8 +700,6 @@ for (var i = 0; i < 10; i++) {
 ### 小练习
 
 1. 做一个计时器，每秒输出当前时间
-
-### 再谈 function
 
 ### DOM 基础 Part 1
 

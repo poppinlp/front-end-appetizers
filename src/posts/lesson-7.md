@@ -258,7 +258,7 @@ __这两个方法 IE 9+ 支持__
 
 栈是一种线性的数据结构，只允许从表的一端插入和弹出数据，这一端称为栈顶，相应的另一端成为栈底。
 
-![](http://f.hiphotos.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=6d4c4094073b5bb5aada28ac57babe5c/a686c9177f3e67098c4504c03fc79f3df8dc5543.jpg)
+![](http://www.leda-tutorial.org/en/official/Pictures/Stack.png)
 
 栈的常用操作为栈顶插入和弹出数据，即在栈顶插入数据和在栈顶删除数据。由于只能在一端进行操作，所以栈结构有个典型的特点，即数据后入先出 (LIFO)。
 
@@ -266,7 +266,7 @@ __这两个方法 IE 9+ 支持__
 
 队列也是一种线性的数据结构，不过和栈不同的是，它只允许在表的前端弹出数据，以及在表的后端插入数据。插入操作的一端成为队尾，弹出操作的一端称为队首。
 
-![](http://f.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=35768ebb0ff3d7ca18fb37249376d56c/cdbf6c81800a19d8116a4d8030fa828ba71e46ce.jpg)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/2000px-Data_Queue.svg.png)
 
 队列的常用操作为队首的弹出数据和队尾的插入数据。所以队列结构的特点为数据先入先出 (FIFO)。
 
@@ -922,7 +922,7 @@ arr.reduceRight(callback[, initialValue])
 2. 实现对象的浅拷贝
 3. 实现对象的深拷贝
 4. 自己实现 indexOf 方法
-5. 对于上面的方法，扩展参数控制，忽略大小写【选做】
+5. 对于上面的方法，扩展参数控制，忽略大小写
 
 ## 预告
 
