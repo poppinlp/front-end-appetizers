@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 4"
         data-filepath="posts/lesson-8.md"
         data-basepath=".."
-        data-revision="Thu Feb 25 2016 20:14:05 GMT+0800 (中国标准时间)"
+        data-revision="Fri Feb 26 2016 09:19:32 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -711,7 +711,7 @@
 <ol>
 <li>&#x5C06;&#x4E00;&#x4E2A;&#x65E5;&#x671F;&#x5B57;&#x7B26;&#x4E32;&#x5982; &apos;2014-12-12&apos; &#x8F6C;&#x5316;&#x4E3A;&#x4E2D;&#x6587; &apos;&#x4E8C;&#x96F6;&#x4E00;&#x56DB;&#x5E74;&#x4E00;&#x4E8C;&#x6708;&#x4E00;&#x4E8C;&#x65E5;&apos;&#x3002;</li>
 </ol>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">date2CN</span>(<span class="hljs-params">str</span>) </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">date2CN</span>(<span class="hljs-params">str</span>) </span>{
     <span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(str);
     <span class="hljs-keyword">if</span> (date.toString() === <span class="hljs-string">&apos;Invalid Date&apos;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Not a Date&apos;</span>;
     <span class="hljs-keyword">return</span> str2CN(date.getFullYear()) + <span class="hljs-string">&apos;&#x5E74;&apos;</span> + (str2CN(date.getMonth() + <span class="hljs-number">1</span>)) + <span class="hljs-string">&apos;&#x6708;&apos;</span> + str2CN(date.getDate()) + <span class="hljs-string">&apos;&#x65E5;&apos;</span>;
@@ -739,6 +739,33 @@
             <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;8&apos;</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&#x516B;&apos;</span>;
             <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;9&apos;</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&#x4E5D;&apos;</span>;
         }
+    }
+}
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">date2CN</span>(<span class="hljs-params">str</span>) </span>{
+    <span class="hljs-keyword">var</span> arr = str.split(<span class="hljs-string">&apos;-&apos;</span>);
+
+    arr = arr.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+        <span class="hljs-keyword">return</span> (val.split(<span class="hljs-string">&apos;&apos;</span>).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">char</span>) </span>{
+            <span class="hljs-keyword">return</span> char2CN(char);
+        })).join(<span class="hljs-string">&apos;&apos;</span>);
+    });
+
+    <span class="hljs-keyword">return</span> arr[<span class="hljs-number">0</span>] + <span class="hljs-string">&apos;&#x5E74;&apos;</span> + arr[<span class="hljs-number">1</span>] + <span class="hljs-string">&apos;&#x6708;&apos;</span> + arr[<span class="hljs-number">2</span>] + <span class="hljs-string">&apos;&#x65E5;&apos;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">char2CN</span>(<span class="hljs-params">char</span>) </span>{
+        <span class="hljs-keyword">return</span> ({
+            <span class="hljs-number">0</span>: <span class="hljs-string">&apos;&#x96F6;&apos;</span>,
+            <span class="hljs-number">1</span>: <span class="hljs-string">&apos;&#x4E00;&apos;</span>,
+            <span class="hljs-number">2</span>: <span class="hljs-string">&apos;&#x4E8C;&apos;</span>,
+            <span class="hljs-number">3</span>: <span class="hljs-string">&apos;&#x4E09;&apos;</span>,
+            <span class="hljs-number">4</span>: <span class="hljs-string">&apos;&#x56DB;&apos;</span>,
+            <span class="hljs-number">5</span>: <span class="hljs-string">&apos;&#x4E94;&apos;</span>,
+            <span class="hljs-number">6</span>: <span class="hljs-string">&apos;&#x516D;&apos;</span>,
+            <span class="hljs-number">7</span>: <span class="hljs-string">&apos;&#x4E03;&apos;</span>,
+            <span class="hljs-number">8</span>: <span class="hljs-string">&apos;&#x516B;&apos;</span>,
+            <span class="hljs-number">9</span>: <span class="hljs-string">&apos;&#x4E5D;&apos;</span>
+        })[char];
     }
 }
 </code></pre>

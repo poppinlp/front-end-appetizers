@@ -77,7 +77,7 @@ function indexOf(src, target) {
 
 1. 将一个日期字符串如 '2014-12-12' 转化为中文 '二零一四年一二月一二日'。
 
-```javascript
+```js
 function date2CN(str) {
     var date = new Date(str);
 	if (date.toString() === 'Invalid Date') return 'Not a Date';
@@ -107,6 +107,35 @@ function date2CN(str) {
 			case '9': return '九';
 		}
 	}
+}
+```
+
+```js
+function date2CN(str) {
+    var arr = str.split('-');
+
+    arr = arr.map(function (val) {
+        return (val.split('').map(function (char) {
+            return char2CN(char);
+        })).join('');
+    });
+
+    return arr[0] + '年' + arr[1] + '月' + arr[2] + '日';
+
+    function char2CN(char) {
+        return ({
+            0: '零',
+            1: '一',
+            2: '二',
+            3: '三',
+            4: '四',
+            5: '五',
+            6: '六',
+            7: '七',
+            8: '八',
+            9: '九'
+        })[char];
+    }
 }
 ```
 
