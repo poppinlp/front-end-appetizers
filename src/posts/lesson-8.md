@@ -576,24 +576,94 @@ function binarySearch(arr, target) {
 ```js
 function shellSort(arr) {
     var gap = Math.floor((arguments[1] || arr.length) / 2),
-        i, j;
+        i, j, k, target;
 
     if (!gap) return arr;
 
     for (i = 0; i < gap; i++) {
-        j = i;
-        while (j < arr.length) {
+        for (j = i + gap; j < arr.length; j += gap) {
+            target = arr[j];
+            for (k = j - gap; k >= 0; k -= gap) {
+                if (target >= arr[k]) break;
 
+                arr[k + gap] = arr[k];
+            }
+            arr[k + gap] = target;
         }
     }
+
+    return shellSort(arr, gap);
 }
 ```
+
+希尔排序是不稳定排序，优点在于效率还不错，并且实现方式比较简单。
+
+#### 归并排序
+
+![](http://img.my.csdn.net/uploads/201105/29/8394323_1306643374dYdO.jpg)
+
+归并排序是利用分治法的思想，将原始数组分解成很多小数组，在小数组中完成排序，并逐渐合并回大数组，最终得到排序的结果。
+在完成分解后，对每一个小数组进行排序，然后逐渐合并各个小数组，在合并的过程中也进行排序从而保证顺序，这样最终回归得到原始数组的排序结果，所以称为归并排序。
+
+```js
+function mergeSort(arr) {
+    var len = arr.length,
+        mid = Math.floor(len / 2);
+
+    if (len === 1) return arr;
+
+    return (function () {
+        var left = mergeSort(arr.slice(0, mid)),
+            right = mergeSort(arr.slice(mid)),
+            res = [];
+
+        while (left.length && right.length) {
+            res.push(left[0] < right[0] ? left.shift() : right.shift());
+        }
+
+        return res.concat(left).concat(right);
+    })();
+}
+```
+
+归并排序是稳定排序，并且性能也非常好，非常适合要求同样的数据有固定顺序的使用场景。
 
 #### 快速排序
 
 ![](http://images.cnblogs.com/cnblogs_com/ruinet/quickSort.jpg)
 
-快速排序是一种性能比冒泡排序和插入排序要好一些的排序方法。
+快速排序是对冒泡排序的一种改进，思路是通过用一个阈值，将要排序的数组拆分成两部分，即大于阈值的部分和小于阈值的部分，来完成一次大概的值的排序。
+然后再对于每个拆分后的数组，继续进行上述过程，直到最终拆分结果只有 1 个数，即完成排序。
+
+```js
+function quickSort(arr) {
+    var low = arguments[1] || 0,
+        high = arguments[2] || (arr.length - 1);
+        left = low,
+        right = high;
+
+    if (left >= right) return;
+
+    var threshold = arr[left];
+
+    while (left < right) {
+        while (left < right && arr[right] >= threshold) right--;
+        arr[left] = arr[right];
+
+        while (left < right && arr[left] <= threshold) left++;
+        arr[right] = arr[left];
+    }
+
+    arr[left] = threshold;
+    quickSort(arr, low, left - 1);
+    quickSort(arr, left + 1, high);
+
+    return arr;
+}
+```
+
+快速排序是一种不稳定排序。针对快速排序存在着不少优化和变种，如阈值的选择、分区的调整等，这里不做讨论，有兴趣的同学可以自行了解。
+在 V8 引擎中，数组内置的 `sort` 方法就是一个快速排序的优化版本。
 
 ### JSON
 
@@ -729,48 +799,6 @@ for (var i = 0; i < 10; i++) {
 ### 小练习
 
 1. 做一个计时器，每秒输出当前时间
-
-### DOM 基础 Part 1
-
-#### 什么是 DOM
-
-DOM 即 Document Object Model，大体上可以分为核心 DOM、XML DOM 和 HTML DOM。
-它定义了文档中的各种不同对象，以及这些对象的属性、方法、事件等内容。
-浏览器通过实现 DOM 规范，从而暴露给 JS 一个操作 DOM 节点的接口。
-详情可见[官方文档](http://www.w3.org/DOM/)。
-
-#### JS 通过 DOM 能做什么
-
-- 能够改变页面中的所有 HTML 元素
-- 能够改变页面中的所有 HTML 属性
-- 能够改变页面中的所有 CSS 样式
-- 能够对页面中的所有事件做出反应
-
-#### DOM 树
-
-HTML 文档在浏览器中会被解析为 DOM 树，其中每个节点即 DOM 节点，就是我们用 JS 直接操作的对象。
-
-对于如下的 HTML 结构：
-
-```html
-<html>
-    <head>
-        <title>My title</title>
-    </head>
-    <body>
-        <a href="">My link</a>
-        <h1>My header</h1>
-    </body>
-</html>
-```
-
-它解析后的 DOM 树为：
-
-![DOM树](https://poppinlp.github.io/static/gist/fe-foundation-course-8-dom-1.png)
-
-其中节点的关系为：
-
-![DOM节点](https://poppinlp.github.io/static/gist/fe-foundation-course-8-dom-2.png)
 
 ## Homework
 

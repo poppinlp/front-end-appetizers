@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 4"
         data-filepath="posts/lesson-8.md"
         data-basepath=".."
-        data-revision="Fri Feb 26 2016 09:19:32 GMT+0800 (中国标准时间)"
+        data-revision="Sat Feb 27 2016 20:59:22 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -1084,21 +1084,81 @@
 &#x901A;&#x5E38;&#x589E;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x503C;&#x53EF;&#x4EE5;&#x53D6;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x7684;&#x4E00;&#x822C;&#xFF0C;&#x6BCF;&#x6B21;&#x7F29;&#x5C0F;&#x4E00;&#x534A;&#x3002;</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shellSort</span>(<span class="hljs-params">arr</span>) </span>{
     <span class="hljs-keyword">var</span> gap = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] || arr.length) / <span class="hljs-number">2</span>),
-        i, j;
+        i, j, k, target;
 
     <span class="hljs-keyword">if</span> (!gap) <span class="hljs-keyword">return</span> arr;
 
     <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; gap; i++) {
-        j = i;
-        <span class="hljs-keyword">while</span> (j &lt; arr.length) {
+        <span class="hljs-keyword">for</span> (j = i + gap; j &lt; arr.length; j += gap) {
+            target = arr[j];
+            <span class="hljs-keyword">for</span> (k = j - gap; k &gt;= <span class="hljs-number">0</span>; k -= gap) {
+                <span class="hljs-keyword">if</span> (target &gt;= arr[k]) <span class="hljs-keyword">break</span>;
 
+                arr[k + gap] = arr[k];
+            }
+            arr[k + gap] = target;
         }
     }
+
+    <span class="hljs-keyword">return</span> shellSort(arr, gap);
 }
 </code></pre>
+<p>&#x5E0C;&#x5C14;&#x6392;&#x5E8F;&#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#x6548;&#x7387;&#x8FD8;&#x4E0D;&#x9519;&#xFF0C;&#x5E76;&#x4E14;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x3002;</p>
+<h4 id="&#x5F52;&#x5E76;&#x6392;&#x5E8F;">&#x5F52;&#x5E76;&#x6392;&#x5E8F;</h4>
+<p><img src="http://img.my.csdn.net/uploads/201105/29/8394323_1306643374dYdO.jpg" alt=""></p>
+<p>&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#x662F;&#x5229;&#x7528;&#x5206;&#x6CBB;&#x6CD5;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x5C06;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#x5206;&#x89E3;&#x6210;&#x5F88;&#x591A;&#x5C0F;&#x6570;&#x7EC4;&#xFF0C;&#x5728;&#x5C0F;&#x6570;&#x7EC4;&#x4E2D;&#x5B8C;&#x6210;&#x6392;&#x5E8F;&#xFF0C;&#x5E76;&#x9010;&#x6E10;&#x5408;&#x5E76;&#x56DE;&#x5927;&#x6570;&#x7EC4;&#xFF0C;&#x6700;&#x7EC8;&#x5F97;&#x5230;&#x6392;&#x5E8F;&#x7684;&#x7ED3;&#x679C;&#x3002;
+&#x5728;&#x5B8C;&#x6210;&#x5206;&#x89E3;&#x540E;&#xFF0C;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x5C0F;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x9010;&#x6E10;&#x5408;&#x5E76;&#x5404;&#x4E2A;&#x5C0F;&#x6570;&#x7EC4;&#xFF0C;&#x5728;&#x5408;&#x5E76;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x4ECE;&#x800C;&#x4FDD;&#x8BC1;&#x987A;&#x5E8F;&#xFF0C;&#x8FD9;&#x6837;&#x6700;&#x7EC8;&#x56DE;&#x5F52;&#x5F97;&#x5230;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#x7684;&#x6392;&#x5E8F;&#x7ED3;&#x679C;&#xFF0C;&#x6240;&#x4EE5;&#x79F0;&#x4E3A;&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mergeSort</span>(<span class="hljs-params">arr</span>) </span>{
+    <span class="hljs-keyword">var</span> len = arr.length,
+        mid = <span class="hljs-built_in">Math</span>.floor(len / <span class="hljs-number">2</span>);
+
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> arr;
+
+    <span class="hljs-keyword">return</span> (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> left = mergeSort(arr.slice(<span class="hljs-number">0</span>, mid)),
+            right = mergeSort(arr.slice(mid)),
+            res = [];
+
+        <span class="hljs-keyword">while</span> (left.length &amp;&amp; right.length) {
+            res.push(left[<span class="hljs-number">0</span>] &lt; right[<span class="hljs-number">0</span>] ? left.shift() : right.shift());
+        }
+
+        <span class="hljs-keyword">return</span> res.concat(left).concat(right);
+    })();
+}
+</code></pre>
+<p>&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#x662F;&#x7A33;&#x5B9A;&#x6392;&#x5E8F;&#xFF0C;&#x5E76;&#x4E14;&#x6027;&#x80FD;&#x4E5F;&#x975E;&#x5E38;&#x597D;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x8981;&#x6C42;&#x540C;&#x6837;&#x7684;&#x6570;&#x636E;&#x6709;&#x56FA;&#x5B9A;&#x987A;&#x5E8F;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x3002;</p>
 <h4 id="&#x5FEB;&#x901F;&#x6392;&#x5E8F;">&#x5FEB;&#x901F;&#x6392;&#x5E8F;</h4>
 <p><img src="http://images.cnblogs.com/cnblogs_com/ruinet/quickSort.jpg" alt=""></p>
-<p>&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x662F;&#x4E00;&#x79CD;&#x6027;&#x80FD;&#x6BD4;&#x5192;&#x6CE1;&#x6392;&#x5E8F;&#x548C;&#x63D2;&#x5165;&#x6392;&#x5E8F;&#x8981;&#x597D;&#x4E00;&#x4E9B;&#x7684;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x662F;&#x5BF9;&#x5192;&#x6CE1;&#x6392;&#x5E8F;&#x7684;&#x4E00;&#x79CD;&#x6539;&#x8FDB;&#xFF0C;&#x601D;&#x8DEF;&#x662F;&#x901A;&#x8FC7;&#x7528;&#x4E00;&#x4E2A;&#x9608;&#x503C;&#xFF0C;&#x5C06;&#x8981;&#x6392;&#x5E8F;&#x7684;&#x6570;&#x7EC4;&#x62C6;&#x5206;&#x6210;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x5373;&#x5927;&#x4E8E;&#x9608;&#x503C;&#x7684;&#x90E8;&#x5206;&#x548C;&#x5C0F;&#x4E8E;&#x9608;&#x503C;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x6765;&#x5B8C;&#x6210;&#x4E00;&#x6B21;&#x5927;&#x6982;&#x7684;&#x503C;&#x7684;&#x6392;&#x5E8F;&#x3002;
+&#x7136;&#x540E;&#x518D;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x62C6;&#x5206;&#x540E;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#xFF0C;&#x76F4;&#x5230;&#x6700;&#x7EC8;&#x62C6;&#x5206;&#x7ED3;&#x679C;&#x53EA;&#x6709; 1 &#x4E2A;&#x6570;&#xFF0C;&#x5373;&#x5B8C;&#x6210;&#x6392;&#x5E8F;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">quickSort</span>(<span class="hljs-params">arr</span>) </span>{
+    <span class="hljs-keyword">var</span> low = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] || <span class="hljs-number">0</span>,
+        high = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">2</span>] || (arr.length - <span class="hljs-number">1</span>);
+        left = low,
+        right = high;
+
+    <span class="hljs-keyword">if</span> (left &gt;= right) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">var</span> threshold = arr[left];
+
+    <span class="hljs-keyword">while</span> (left &lt; right) {
+        <span class="hljs-keyword">while</span> (left &lt; right &amp;&amp; arr[right] &gt;= threshold) right--;
+        arr[left] = arr[right];
+
+        <span class="hljs-keyword">while</span> (left &lt; right &amp;&amp; arr[left] &lt;= threshold) left++;
+        arr[right] = arr[left];
+    }
+
+    arr[left] = threshold;
+    quickSort(arr, low, left - <span class="hljs-number">1</span>);
+    quickSort(arr, left + <span class="hljs-number">1</span>, high);
+
+    <span class="hljs-keyword">return</span> arr;
+}
+</code></pre>
+<p>&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x662F;&#x4E00;&#x79CD;&#x4E0D;&#x7A33;&#x5B9A;&#x6392;&#x5E8F;&#x3002;&#x9488;&#x5BF9;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x5B58;&#x5728;&#x7740;&#x4E0D;&#x5C11;&#x4F18;&#x5316;&#x548C;&#x53D8;&#x79CD;&#xFF0C;&#x5982;&#x9608;&#x503C;&#x7684;&#x9009;&#x62E9;&#x3001;&#x5206;&#x533A;&#x7684;&#x8C03;&#x6574;&#x7B49;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x8BA8;&#x8BBA;&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x4E86;&#x89E3;&#x3002;
+&#x5728; V8 &#x5F15;&#x64CE;&#x4E2D;&#xFF0C;&#x6570;&#x7EC4;&#x5185;&#x7F6E;&#x7684; <code>sort</code> &#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x7684;&#x4F18;&#x5316;&#x7248;&#x672C;&#x3002;</p>
 <h3 id="json">JSON</h3>
 <p>JSON &#x5373; JavaScript &#x5BF9;&#x8C61;&#x8868;&#x793A;&#x6CD5;&#xFF08;JavaScript Object Notation&#xFF09;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7B80;&#x6D01;&#x7684;&#x50A8;&#x5B58;&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#x3002;
 &#x7531;&#x4E8E;&#x5B83;&#x7684;&#x7ED3;&#x6784;&#x5F88;&#x50CF; JS &#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x9002;&#x5408; JS &#x6765;&#x4F7F;&#x7528;&#x3002;&#x7C7B;&#x4F3C;&#x7684;&#x8FD8;&#x6709; yaml &#x548C; xml &#x7B49;&#x7B49;&#x3002;
@@ -1187,36 +1247,6 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 <ol>
 <li>&#x505A;&#x4E00;&#x4E2A;&#x8BA1;&#x65F6;&#x5668;&#xFF0C;&#x6BCF;&#x79D2;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x65F6;&#x95F4;</li>
 </ol>
-<h3 id="dom-&#x57FA;&#x7840;-part-1">DOM &#x57FA;&#x7840; Part 1</h3>
-<h4 id="&#x4EC0;&#x4E48;&#x662F;-dom">&#x4EC0;&#x4E48;&#x662F; DOM</h4>
-<p>DOM &#x5373; Document Object Model&#xFF0C;&#x5927;&#x4F53;&#x4E0A;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x6838;&#x5FC3; DOM&#x3001;XML DOM &#x548C; HTML DOM&#x3002;
-&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;&#x53CA;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x4E8B;&#x4EF6;&#x7B49;&#x5185;&#x5BB9;&#x3002;
-&#x6D4F;&#x89C8;&#x5668;&#x901A;&#x8FC7;&#x5B9E;&#x73B0; DOM &#x89C4;&#x8303;&#xFF0C;&#x4ECE;&#x800C;&#x66B4;&#x9732;&#x7ED9; JS &#x4E00;&#x4E2A;&#x64CD;&#x4F5C; DOM &#x8282;&#x70B9;&#x7684;&#x63A5;&#x53E3;&#x3002;
-&#x8BE6;&#x60C5;&#x53EF;&#x89C1;<a href="http://www.w3.org/DOM/" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x3002;</p>
-<h4 id="js-&#x901A;&#x8FC7;-dom-&#x80FD;&#x505A;&#x4EC0;&#x4E48;">JS &#x901A;&#x8FC7; DOM &#x80FD;&#x505A;&#x4EC0;&#x4E48;</h4>
-<ul>
-<li>&#x80FD;&#x591F;&#x6539;&#x53D8;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x6240;&#x6709; HTML &#x5143;&#x7D20;</li>
-<li>&#x80FD;&#x591F;&#x6539;&#x53D8;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x6240;&#x6709; HTML &#x5C5E;&#x6027;</li>
-<li>&#x80FD;&#x591F;&#x6539;&#x53D8;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x6240;&#x6709; CSS &#x6837;&#x5F0F;</li>
-<li>&#x80FD;&#x591F;&#x5BF9;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4E8B;&#x4EF6;&#x505A;&#x51FA;&#x53CD;&#x5E94;</li>
-</ul>
-<h4 id="dom-&#x6811;">DOM &#x6811;</h4>
-<p>HTML &#x6587;&#x6863;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; DOM &#x6811;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5373; DOM &#x8282;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7528; JS &#x76F4;&#x63A5;&#x64CD;&#x4F5C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
-<p>&#x5BF9;&#x4E8E;&#x5982;&#x4E0B;&#x7684; HTML &#x7ED3;&#x6784;&#xFF1A;</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>My title<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;&quot;</span>&gt;</span>My link<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My header<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
-</code></pre>
-<p>&#x5B83;&#x89E3;&#x6790;&#x540E;&#x7684; DOM &#x6811;&#x4E3A;&#xFF1A;</p>
-<p><img src="https://poppinlp.github.io/static/gist/fe-foundation-course-8-dom-1.png" alt="DOM&#x6811;"></p>
-<p>&#x5176;&#x4E2D;&#x8282;&#x70B9;&#x7684;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A;</p>
-<p><img src="https://poppinlp.github.io/static/gist/fe-foundation-course-8-dom-2.png" alt="DOM&#x8282;&#x70B9;"></p>
 <h2 id="homework">Homework</h2>
 <ol>
 <li>&#x590D;&#x4E60; HTML &#x548C; CSS &#x7684;&#x90E8;&#x5206;&#x3002;&#x8BB2; JS &#x57FA;&#x7840;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x76F4;&#x6CA1;&#x6D89;&#x53CA;&#x8FD9;&#x4E9B;&#xFF0C;&#x5E0C;&#x671B;&#x5927;&#x5BB6;&#x4E0D;&#x8981;&#x5FD8;&#x4E86;&#xFF0C;&#x9A6C;&#x4E0A;&#x5F00;&#x59CB;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4E86;&#x3002;</li>

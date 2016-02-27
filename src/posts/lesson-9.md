@@ -11,11 +11,93 @@ function parseTemplate(template, data) {
 }
 ```
 
-## 写在前面
+## cookie
 
-之前有看到同学们的评价反馈，其中好几个提到之前的内容比较复杂和理论，那我决定从这节课开始我们换一种教学方式，不再以理论知识为核心，改为围绕如何具体使用来进行内容安排。
+![](http://momssecretrecipes.com/uploads/2015105930.jpg)
 
-## DOM 基础 Part 2
+这里简单说一下 cookie，当然我们要说的不是这个好吃的曲奇饼，而是一种储存数据的方式。
+
+### 什么是 cookie
+
+Cookie 是一种本地浏览器储存技术，即开发者可以通过一些技术手段将一些信息存放在用户浏览器端。
+它的官方规范定义在 [RFC6265](http://www.rfc-editor.org/rfc/rfc6265.txt)，主要用于在用户本地浏览器记录一些用户个人信息，如身份辨识、一些状态选择等。
+
+### 如何设置 cookie
+
+常见的设置 cookie 的方式有两种：
+
+- 通过在请求的 response 的 header 中加入一些相关字段来设置
+- 通过 JS 代码来设置
+
+对于第一种方式
+
+## DOM 基础 Part 1
+
+### 什么是 DOM
+
+DOM 即 Document Object Model，文档对象模型。大体上可以分为核心 DOM、XML DOM 和 HTML DOM。
+它由 W3C 组织制定相关规范，规范中定义了针对 HTML、XML 的文档中的各种不同对象，以及这些对象的属性、方法、事件等内容。
+
+### DOM、JS 和 浏览器
+
+浏览器作为一个环境按照 DOM 规范实现了相关的功能，从而把 HTML 文档解析成相应的 DOM 结构。
+并且通过实现 DOM 规范中定义的各种接口，将它们暴露给 JS，从而让 JS 能够方便的进行各种 DOM 操作。
+详情可见[官方文档](http://www.w3.org/DOM/)。
+
+### JS 通过 DOM 能做什么
+
+- 能够改变页面中的所有 HTML 元素
+- 能够改变页面中的所有 HTML 属性
+- 能够改变页面中的所有 CSS 样式
+- 能够对页面中的所有事件做出反应
+- e.t.c
+
+### DOM 树
+
+HTML 文档在浏览器中会被解析为 DOM 树，其中每个节点即 DOM 节点，我们用 JS 可以对这些 DOM 节点做出各种规范中定义的操作。
+
+对于如下的 HTML 结构：
+
+```html
+<html>
+    <head>
+        <title>My title</title>
+    </head>
+    <body>
+        <a href="">My link</a>
+        <h1>My header</h1>
+    </body>
+</html>
+```
+
+它解析后的 DOM 树为：
+
+![DOM树](https://poppinlp.github.io/static/gist/fe-foundation-course-8-dom-1.png)
+
+其中节点的关系为：
+
+![DOM节点](https://poppinlp.github.io/static/gist/fe-foundation-course-8-dom-2.png)
+
+### document
+
+`document` 即文档，在浏览器中 `document` 对象是一个 HTML 文档解析成 DOM 后的根节点。
+`document` 节点继承了 `Node` 和 `EventTarget`，它包含了网页的内容和 DOM 树，并且提供了很多特有的方法。
+
+#### document.head
+
+`document.head` 是个只读属性，返回当前文档的第一个 `<head>` 元素。
+
+#### document.body
+
+`document.body` 是个只读属性，返回当前文档的 `<body>` 元素。
+
+#### document.title
+
+`document.title` 属性用于获取或者设置当前文档的标题。
+
+#### document.cookie
+
+`document.cookie` 属性用于获取或者设置当前文档的 `cookie`。
 
 ### 节点访问
 
