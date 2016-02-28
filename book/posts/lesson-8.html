@@ -53,7 +53,7 @@
         data-chapter-title="Javascript 4"
         data-filepath="posts/lesson-8.md"
         data-basepath=".."
-        data-revision="Sat Feb 27 2016 20:59:22 GMT+0800 (中国标准时间)"
+        data-revision="Sun Feb 28 2016 22:05:41 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -952,7 +952,7 @@
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> cache = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fib</span>(<span class="hljs-params">n</span>) </span>{
-    <span class="hljs-keyword">if</span> (cache[n]) {
+    <span class="hljs-keyword">if</span> (cache[n] !== <span class="hljs-literal">undefined</span>) {
         <span class="hljs-keyword">return</span> cache[n];
     } <span class="hljs-keyword">else</span> {
         cache[n] = fib(n - <span class="hljs-number">1</span>) + fib(n - <span class="hljs-number">2</span>);
