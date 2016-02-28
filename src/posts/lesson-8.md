@@ -439,9 +439,7 @@ function fib(n) {
 - e.t.c
 
 ```js
-var a = 'A', b = 'B', c = 'C';
-
-function hanoi(n) {
+function hanoi(n, a, b, c) {
     if (n === 1) {
         console.log(n + ': ' + a + '->' + c);
     } else {
