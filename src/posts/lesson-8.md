@@ -320,7 +320,7 @@ Math.sqrt(-1); // NaN
 
 ```javascript
 function random(num1, num2) {
-    return num1 + Math.floor(Math.random() * (num2 - num1));
+    return num1 + Math.random() * (num2 - num1);
 }
 ```
 
