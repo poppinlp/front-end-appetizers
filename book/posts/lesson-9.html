@@ -53,7 +53,7 @@
         data-chapter-title="DOM 1"
         data-filepath="posts/lesson-9.md"
         data-basepath=".."
-        data-revision="Thu Mar 10 2016 20:34:38 GMT+0800 (中国标准时间)"
+        data-revision="Sat Mar 12 2016 20:41:05 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -712,8 +712,46 @@
 <p><code>document.body</code> &#x662F;&#x4E2A;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#xFF0C;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684; <code>&lt;body&gt;</code> &#x5143;&#x7D20;&#x3002;</p>
 <h4 id="documenttitle">document.title</h4>
 <p><code>document.title</code> &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x6807;&#x9898;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> curTitle = <span class="hljs-built_in">document</span>.title;
+<span class="hljs-built_in">document</span>.title = <span class="hljs-string">&apos;new title&apos;</span>;
+</code></pre>
 <h4 id="documentcookie">document.cookie</h4>
 <p><code>document.cookie</code> &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684; <code>cookie</code>&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> curCookie = <span class="hljs-built_in">document</span>.cookie;
+<span class="hljs-built_in">document</span>.cookie = <span class="hljs-string">&apos;new cookie&apos;</span>;
+</code></pre>
+<p><code>cookie</code> &#x5728;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x4E3A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x4E2D;&#x95F4;&#x7528; <code>=</code> &#x53F7;&#x5EFA;&#x7ACB;&#x8054;&#x7CFB;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x9879;&#x4E4B;&#x95F4;&#x7528; <code>;</code> &#x5206;&#x9694;&#x3002;
+&#x9664;&#x4E86;&#x4E3B;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x952E;&#x503C;&#x5BF9;&#x4EE5;&#x5916;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x8BBE;&#x7F6E;&#x9879;&#x6709; <code>domain</code>, <code>path</code>, <code>expires</code>&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x610F;&#x601D;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x53BB;&#x81EA;&#x884C;&#x641C;&#x7D22;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span>(<span class="hljs-params">key, value, config</span>) </span>{
+    <span class="hljs-keyword">var</span> DAY = <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>,
+        now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+
+    config = $.extend({
+        expire: <span class="hljs-number">30</span>,
+        path: <span class="hljs-string">&apos;/&apos;</span>,
+        domain: <span class="hljs-built_in">window</span>.location.hostname
+    });
+
+    now.setTime(now.getTime() + config.expire * DAY);
+    <span class="hljs-built_in">document</span>.cookie = key + <span class="hljs-string">&quot;=&quot;</span> + <span class="hljs-built_in">encodeURIComponent</span>(value) + <span class="hljs-string">&quot;; domain=&quot;</span> + config.domain + <span class="hljs-string">&quot;; path=&quot;</span> + config.path + <span class="hljs-string">&quot;; expires=&quot;</span> + now.toGMTString();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span>(<span class="hljs-params">key</span>) </span>{
+    <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">document</span>.cookie.split(<span class="hljs-string">&quot;; &quot;</span>),
+        len = keys.length, tmp;
+
+    <span class="hljs-keyword">while</span> (len--) {
+        tmp = keys[len].split(<span class="hljs-string">&apos;=&apos;</span>);
+        <span class="hljs-keyword">if</span> (tmp[<span class="hljs-number">0</span>] === key) {
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">decodeURIComponent</span>(tmp[<span class="hljs-number">1</span>]);
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unset</span>(<span class="hljs-params">key</span>) </span>{
+    set(key, <span class="hljs-literal">false</span>, -<span class="hljs-number">1</span>);
+}
+</code></pre>
 <h3 id="&#x8282;&#x70B9;&#x8BBF;&#x95EE;">&#x8282;&#x70B9;&#x8BBF;&#x95EE;</h3>
 <h4 id="getelementbyid">getElementById</h4>
 <pre><code class="lang-javascript">element = <span class="hljs-built_in">document</span>.getElementById(id);

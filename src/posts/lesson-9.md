@@ -97,9 +97,54 @@ HTML 文档在浏览器中会被解析为 DOM 树，其中每个节点即 DOM �
 
 `document.title` 属性用于获取或者设置当前文档的标题。
 
+```js
+var curTitle = document.title;
+document.title = 'new title';
+```
+
 #### document.cookie
 
 `document.cookie` 属性用于获取或者设置当前文档的 `cookie`。
+
+```js
+var curCookie = document.cookie;
+document.cookie = 'new cookie';
+```
+
+`cookie` 在设置的时候内容格式为键值对的形式，中间用 `=` 号建立联系，不同的项之间用 `; ` 分隔。
+除了主要的内容键值对以外，常见的设置项有 `domain`, `path`, `expires`，具体的意思有兴趣的同学可以去自行搜索。
+
+```js
+function set(key, value, config) {
+    var DAY = 24 * 60 * 60 * 1000,
+        now = new Date();
+
+    config = $.extend({
+        expire: 30,
+        path: '/',
+        domain: window.location.hostname
+    });
+
+    now.setTime(now.getTime() + config.expire * DAY);
+    document.cookie = key + "=" + encodeURIComponent(value) + "; domain=" + config.domain + "; path=" + config.path + "; expires=" + now.toGMTString();
+}
+
+function get(key) {
+    var keys = document.cookie.split("; "),
+        len = keys.length, tmp;
+
+    while (len--) {
+        tmp = keys[len].split('=');
+        if (tmp[0] === key) {
+            return decodeURIComponent(tmp[1]);
+        }
+    }
+}
+
+function unset(key) {
+    set(key, false, -1);
+}
+```
 
 ### 节点访问
 
