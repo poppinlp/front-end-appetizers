@@ -114,6 +114,8 @@ document.cookie = 'new cookie';
 `cookie` 在设置的时候内容格式为键值对的形式，中间用 `=` 号建立联系，不同的项之间用 `; ` 分隔。
 除了主要的内容键值对以外，常见的设置项有 `domain`, `path`, `expires`，具体的意思有兴趣的同学可以去自行搜索。
 
+这些对于 cookie 的操作，
+
 ```js
 function set(key, value, config) {
     var DAY = 24 * 60 * 60 * 1000,
@@ -200,10 +202,11 @@ document.querySelector("style[type='text/css'], style:not([type])");
 - parentNode
 - parentElement
 
-#### 修改内部 html 内容
+#### 修改内容
 
-通过 `innerHTML` 属性可以非常方便的获取和设置节点内部的 html 内容。
-如：
+##### innerHTML
+
+通过 `innerHTML` 属性可以非常方便的获取和设置节点内部的 html 内容。如：
 
 ```html
 <body>
@@ -211,6 +214,28 @@ document.querySelector("style[type='text/css'], style:not([type])");
     <script>
         console.log(document.body.innerHTML);
         document.body.innerHTML = '<p>Hello world</p>';
+    </script>
+<body>
+```
+
+需要注意的是，设置进去的字符串会被按照 html 来解析，例如一些特殊编码 `&#9824;`，又或者是一些正常的标签 `<img src="">`。
+所以，如果对用户输入的字符串直接进行这个操作，其实是非常危险的。例如大家可以尝试一下这个操作：
+
+```js
+document.body.innerHTML = '<script>alert(document.cookie)</script>';
+```
+
+##### textContent
+
+通过 `textContent` 属性可以非常方便的获取和设置节点内部的文本内容。如：
+
+```html
+<body>
+    <h1>Title</h1>
+    <script>
+        var ele = document.querySelector('h1');
+        console.log(ele.textContent);
+        ele.textContent = 'Hello World';
     </script>
 <body>
 ```
@@ -225,7 +250,7 @@ document.querySelector("style[type='text/css'], style:not([type])");
 
 <script>
 document.getElementById("image").src="https://www.google.com/images/srpr/logo11w.png";
-document.getElementById("image").setAttribute('class','pic');
+document.getElementById("image").setAttribute('class', 'pic');
 </script>
 ```
 

@@ -53,7 +53,7 @@
         data-chapter-title="DOM 1"
         data-filepath="posts/lesson-9.md"
         data-basepath=".."
-        data-revision="Sat Mar 12 2016 20:41:05 GMT+0800 (中国标准时间)"
+        data-revision="Sun Mar 13 2016 20:35:38 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -722,6 +722,7 @@
 </code></pre>
 <p><code>cookie</code> &#x5728;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x4E3A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x4E2D;&#x95F4;&#x7528; <code>=</code> &#x53F7;&#x5EFA;&#x7ACB;&#x8054;&#x7CFB;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x9879;&#x4E4B;&#x95F4;&#x7528; <code>;</code> &#x5206;&#x9694;&#x3002;
 &#x9664;&#x4E86;&#x4E3B;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x952E;&#x503C;&#x5BF9;&#x4EE5;&#x5916;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x8BBE;&#x7F6E;&#x9879;&#x6709; <code>domain</code>, <code>path</code>, <code>expires</code>&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x610F;&#x601D;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x53BB;&#x81EA;&#x884C;&#x641C;&#x7D22;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x5BF9;&#x4E8E; cookie &#x7684;&#x64CD;&#x4F5C;&#xFF0C;</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span>(<span class="hljs-params">key, value, config</span>) </span>{
     <span class="hljs-keyword">var</span> DAY = <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>,
         now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
@@ -787,14 +788,29 @@
 <li>parentNode</li>
 <li>parentElement</li>
 </ul>
-<h4 id="&#x4FEE;&#x6539;&#x5185;&#x90E8;-html-&#x5185;&#x5BB9;">&#x4FEE;&#x6539;&#x5185;&#x90E8; html &#x5185;&#x5BB9;</h4>
-<p>&#x901A;&#x8FC7; <code>innerHTML</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x8282;&#x70B9;&#x5185;&#x90E8;&#x7684; html &#x5185;&#x5BB9;&#x3002;
-&#x5982;&#xFF1A;</p>
+<h4 id="&#x4FEE;&#x6539;&#x5185;&#x5BB9;">&#x4FEE;&#x6539;&#x5185;&#x5BB9;</h4>
+<h5 id="innerhtml">innerHTML</h5>
+<p>&#x901A;&#x8FC7; <code>innerHTML</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x8282;&#x70B9;&#x5185;&#x90E8;&#x7684; html &#x5185;&#x5BB9;&#x3002;&#x5982;&#xFF1A;</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
         <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>.body.innerHTML);
         <span class="hljs-built_in">document</span>.body.innerHTML = <span class="hljs-string">&apos;&lt;p&gt;Hello world&lt;/p&gt;&apos;</span>;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+</code></pre>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8BBE;&#x7F6E;&#x8FDB;&#x53BB;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4F1A;&#x88AB;&#x6309;&#x7167; html &#x6765;&#x89E3;&#x6790;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7F16;&#x7801; <code>&amp;#9824;</code>&#xFF0C;&#x53C8;&#x6216;&#x8005;&#x662F;&#x4E00;&#x4E9B;&#x6B63;&#x5E38;&#x7684;&#x6807;&#x7B7E; <code>&lt;img src=&quot;&quot;&gt;</code>&#x3002;
+&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x975E;&#x5E38;&#x5371;&#x9669;&#x7684;&#x3002;&#x4F8B;&#x5982;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-built_in">document</span>.body.innerHTML = <span class="hljs-string">&apos;&lt;script&gt;alert(document.cookie)&lt;/script&gt;&apos;</span>;
+</code></pre>
+<h5 id="textcontent">textContent</h5>
+<p>&#x901A;&#x8FC7; <code>textContent</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x8282;&#x70B9;&#x5185;&#x90E8;&#x7684;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x3002;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">var</span> ele = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;h1&apos;</span>);
+        <span class="hljs-built_in">console</span>.log(ele.textContent);
+        ele.textContent = <span class="hljs-string">&apos;Hello World&apos;</span>;
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
 </code></pre>
@@ -805,7 +821,7 @@
 
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;image&quot;</span>).src=<span class="hljs-string">&quot;https://www.google.com/images/srpr/logo11w.png&quot;</span>;
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;image&quot;</span>).setAttribute(<span class="hljs-string">&apos;class&apos;</span>,<span class="hljs-string">&apos;pic&apos;</span>);
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;image&quot;</span>).setAttribute(<span class="hljs-string">&apos;class&apos;</span>, <span class="hljs-string">&apos;pic&apos;</span>);
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <h4 id="&#x4FEE;&#x6539;&#x8282;&#x70B9;&#x6837;&#x5F0F;">&#x4FEE;&#x6539;&#x8282;&#x70B9;&#x6837;&#x5F0F;</h4>
