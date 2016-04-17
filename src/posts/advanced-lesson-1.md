@@ -43,7 +43,7 @@ function (a,b){return new _.fn.init(a,b)}
 ```
 
 从这里我们可以看出，`$` 其实是对一个构建函数的封装。而通过 jQeury 源代码可以看出，`$.fn.init` 函数的功能即是通过判断传入的第一个参数的类型，来进行不同的处理。
-如字符串则尝试作为选择器或者 HTML 代码等、jQuery 对象则返回、函数则根据时机来立即执行或者插入 ready 事件队列中等等。
+如字符串则尝试作为选择器或者 HTML 代码等、jQuery 对象则返回、函数则根据时机来立即执行或者插入 domready 事件队列中等等。
 
 这可以算是 jQuery 使用中最常用到的函数，也因为是 jQuery 的工厂函数而十分重要。有兴趣的同学可以自行阅读其相关源代码。
 
@@ -80,27 +80,34 @@ $('.selector').addClass('className').html('htmlCode');
 
 ## 常用 DOM 方法
 
-### 节点获取
+### 亲属节点获取
 
-- find
 - children
+- closest
+- find
 - parent
+- parents
+- parentUtil
 - next
+- nextAll
+- nextUtil
 - prev
+- prevAll
+- prevUtil
 - siblings
 
-### CSS 和属性操作
+### 样式和属性操作
 
 - css
-- attr
 - prop
+- attr / removeAttr
+- data / hasData / removeData
 - val
 - hasClass / removeClass / addClass / toggleClass
 - height / innerHeight / outerHeight
 - width / innerWidth / outerWidth
 - offset
 - scrollLeft / scrollTop
-- data / hasData / removeData
 
 ### DOM 操作
 
@@ -110,6 +117,7 @@ $('.selector').addClass('className').html('htmlCode');
 - prepend / prependTo
 - wrap / unwrap
 - before / after
+- insertAfter / inertBefore
 - remove
 - empty
 
@@ -119,13 +127,16 @@ $('.selector').addClass('className').html('htmlCode');
 - first
 - last
 - slice
+- has
+- is
 - filter
+- each
 - map
 
-## HOME WORK
+## 练习
 
-1. 用 jQuery 实现，做一个时钟，动态显示当前时间。要求定位部分也用 jQuery 实现，而非直接写 CSS。
-2. 用 jQuery 实现，页面中一个红色的方块从左上角开始，向右移动，到右边贴着屏幕边缘后停止。要求页面文档 `body` 节点中不直接写任何 HTML 代码，都用 jQuery 来做，移动部分不使用动画相关函数，自行修改位置来实现。
+1. 用 jQuery 实现，页面中一个红色的方块从左上角开始，向右移动，到右边贴着屏幕边缘后停止。要求页面文档 `body` 节点中不直接写任何 HTML 代码，都用 jQuery 来做，移动部分不使用动画相关函数，自行修改位置来实现。
+2. 用 jQuery 实现 tab 功能。
 
 ## 内容预告
 
